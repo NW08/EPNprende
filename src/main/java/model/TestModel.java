@@ -1,15 +1,15 @@
+// TestModel.java
 package main.java.model;
 
-import javafx.scene.control.Label;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 
 public class TestModel {
-    private int i = 0;
-    private final Label label;
+    private final IntegerProperty counter = new SimpleIntegerProperty(0);
 
-    public TestModel(Label lbl_text) {
-        this.label = lbl_text;
-        updateLabel();
-    }
+    /** Incrementa el contador en 1 */
+    public void increment() { counter.set(counter.get() + 1); }
 
-    public void updateLabel() { label.setText("Hello World (" + i++ + ")"); }
+    /** Propiedad para enlazar con la vista */
+    public IntegerProperty counterProperty() { return counter; }
 }

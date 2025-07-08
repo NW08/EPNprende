@@ -1,19 +1,28 @@
 package main.java.controllers;
 
+// TestController.java
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import main.java.model.TestModel;
 
 public class TestController {
 
-   TestModel model;
+    @FXML
+    private Label lbl_text;
 
-   @FXML
-   private Label lbl_text;
+    private TestModel model;
 
-   public void initialize() { model = new TestModel(lbl_text); }
+    @FXML
+    public void initialize() {
+        model = new TestModel();
 
-   @FXML
-   void click() { model.updateLabel(); }
+        // Bind: label mostrará automáticamente "Hello World (n)"
+        lbl_text.textProperty().bind(
+            model.counterProperty()
+                 .asString("Hello World (%d)")
+        );
+    }
 
+    @FXML
+    void click() { model.increment();}
 }
