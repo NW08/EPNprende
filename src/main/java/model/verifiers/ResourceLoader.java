@@ -1,4 +1,4 @@
-package main.java.model;
+package main.java.model.verifiers;
 
 import main.java.utils.Strings;
 

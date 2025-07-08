@@ -5,7 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import main.java.model.ResourceLoader;
+import main.java.model.verifiers.ResourceLoader;
 import main.java.utils.Paths;
 
 import java.io.IOException;
