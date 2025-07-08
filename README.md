@@ -6,40 +6,12 @@
 ![Build](https://img.shields.io/badge/build-passing-brightgreen?style=for-the-badge)
 ![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)
 
----
-
-## 📸 Screenshot
-
-<!-- Si tienes una interfaz gráfica, puedes mostrar una imagen aquí -->
-<img src="screenshots/app-demo.png" alt="Demo de la app" width="600"/>
-
----
 
 ## 🧰 Tecnologías usadas
 
-- ⚙️ **Java** [versión: 17 o superior]
-- 📦 **Maven** o **Gradle** (para la gestión de dependencias)
-- 🎨 **JavaFX** / **Swing** (si tiene interfaz gráfica)
-- 🧪 JUnit (si incluye pruebas unitarias)
+- ⚙️ **Java** [versión: 24]
+- 🎨 **JavaFX**
+- 🧪 JUnit
+- 💾 PostgreSQL
 
 ---
-
-## 🚀 Cómo ejecutar la aplicación
-
-### 💻 Requisitos previos
-
-- Tener instalado Java JDK
-- Tener Maven o Gradle (si aplica)
-
-### 🧪 Pasos para ejecutar
-
-```bash
-# 1. Clona el repositorio
-git clone https://github.com/tu-usuario/NombreDeTuApp.git
-
-# 2. Ingresa al proyecto
-cd NombreDeTuApp
-
-# 3. Compila y ejecuta
-mvn clean install
-mvn exec:java
