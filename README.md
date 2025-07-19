@@ -7,6 +7,6 @@
 - ⚙️ **Java** [versión: 24]
 - 🎨 **JavaFX**
 - 🧪 JUnit
-- 💾 PostgreSQL
+- 💾 PostgresSQL
 
 ---
