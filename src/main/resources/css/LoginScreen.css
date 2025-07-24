@@ -1,0 +1,81 @@
+/* Estilo para el fondo con gradiente lineal */
+.root {
+    /* Define un gradiente lineal:
+     * - "to bottom right": la dirección del gradiente (de arriba a la izquierda a abajo a la derecha).
+     * - Color1 (0%): El color del inicio del gradiente (arriba a la izquierda).
+     * - Color2 (50%): El color en el punto medio del gradiente.
+     * - Color3 (100%): El color del final del gradiente (abajo a la derecha).
+     */
+    -fx-background-color: linear-gradient(to bottom right, #2B5C7D 0%, #16253A 50%, #182337 100%);
+}
+
+/* Clase CSS para un cuadrado con el logo con color de fondo y borde */
+.logo_square {
+    -fx-fill: #1B324A; /* Color de relleno */
+    -fx-stroke: #669BBD; /* Color del borde */
+    -fx-stroke-width: 2px; /* Ancho del borde */
+}
+
+/* Clase CSS para estilizar un TextField */
+.email_text_field {
+    -fx-max-width: 400px; /* Ancho preferido */
+    -fx-max-height: 60px; /* Altura preferida */
+    -fx-background-color: #16253A; /* Fondo */
+    -fx-text-fill: #FFFFFF; /* Color del texto */
+    -fx-font-family: "JejuMyeongjo"; /* Tipo de fuente */
+    -fx-font-size: 18px; /* Tamaño de la fuente */
+    -fx-prompt-text-fill: #B7B3B3; /* Color del texto de sugerencia (placeholder) */
+    -fx-border-color: #00BBFF; /* DodgerBlue (azul brillante) */
+    -fx-border-width: 1px; /* Grosor del borde */
+    -fx-border-radius: 15px; /* Radio de las esquinas del borde */
+}
+
+/* Estilo para cuando el TextField tiene el foco */
+.email_text_field:focused {
+    -fx-border-width: 3px;
+}
+
+/* Clase CSS para estilizar un PasswordField */
+.password_text_field {
+    -fx-max-width: 400px; /* Ancho máximo (igual que el TextField) */
+    -fx-max-height: 60px; /* Altura máxima (igual que el TextField) */
+    -fx-background-color: #16253A; /* Fondo (igual que el TextField) */
+    -fx-text-fill: #FFFFFF; /* Color del texto (igual que el TextField) */
+    -fx-font-family: "JejuMyeongjo"; /* Tipo de fuente (igual que el TextField) */
+    -fx-font-size: 18px; /* Tamaño de la fuente (igual que el TextField) */
+    -fx-prompt-text-fill: #B7B3B3; /* Color del texto de sugerencia (placeholder) (igual que el TextField) */
+    -fx-border-color: #00BBFF; /* Color del borde (igual que el TextField) */
+    -fx-border-width: 1px; /* Grosor del borde (igual que el TextField) */
+    -fx-border-radius: 15px; /* Radio de las esquinas del borde (igual que el TextField) */
+}
+
+/* Estilo para cuando el PasswordField tiene el foco */
+.password_text_field:focused {
+    -fx-border-width: 3px; /* Grosor del borde al enfocar (igual que el TextField) */
+}
+
+.enter_square {
+    -fx-fill: linear-gradient(to right, #A0DAFF 0%, #1977AD 100%);; /* Color de relleno */
+}
+
+/* Estilo base para el Label que simula un enlace */
+.create_account {
+    -fx-text-fill: #77E6FF; /* Color del texto azul (como un enlace predeterminado) */
+    -fx-underline: true; /* Subrayado del texto */
+    -fx-cursor: hand; /* Cambia el cursor a una mano (puntero de enlace) */
+    -fx-font-family: "JejuMyeongjo"; /* Usa la misma fuente que tus TextField */
+    -fx-font-size: 20px; /* Un tamaño de fuente adecuado para un enlace */
+}
+
+/* Estilo para cuando el ratón está sobre el Label (hover) */
+.create_account:hover {
+    -fx-text-fill: #1E90FF; /* Un azul un poco más brillante al pasar el ratón */
+    /* Puedes añadir o quitar el subrayado aquí si quieres un efecto más dinámico */
+    /* -fx-underline: false; */
+}
+
+/* Estilo para cuando el Label está siendo presionado (clic) */
+.create_account:pressed {
+    -fx-text-fill: #6A5ACD; /* Un color diferente (SlateBlue) para indicar que ha sido presionado */
+    -fx-underline: true; /* Asegura que el subrayado se mantenga al presionar */
+}
