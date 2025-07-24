@@ -2,8 +2,9 @@ package main.java.utils;
 
 public enum Paths {
 
-   LAUNCHER("/main/resources/RootScreen.fxml"),
-   LOGIN_SCREEN("/main/resources/LoginScreen.fxml");
+   LOGIN_SCREEN("/main/resources/LoginScreen.fxml"),
+   DASHBOARD_SCREEN("/main/resources/DashboardScreen.fxml"),
+   LAUNCHER("/main/resources/RootScreen.fxml");
 
    private final String path;
 

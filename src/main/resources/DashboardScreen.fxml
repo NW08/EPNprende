@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            xmlns="http://javafx.com/javafx"
+            fx:controller="main.java.controllers.DashboardScreenController"
+            prefHeight="924.0" prefWidth="1643.0">
+
+</BorderPane>

@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import main.java.controllers.RootController;
 import main.java.utils.Paths;
 import main.kotlin.ResourceLoader;
 
@@ -19,9 +20,15 @@ public class App extends Application {
    @Override
    public void start(Stage stage) throws IOException {
 
-      // Cargar el recurso FXML
-      var resource = ResourceLoader.INSTANCE.getResource$EPNprende(Paths.LAUNCHER.getPath());
-      StackPane root = FXMLLoader.load(resource);
+      // Crear el loader
+      FXMLLoader loader = new FXMLLoader(ResourceLoader.INSTANCE.getResource$EPNprende(Paths.LAUNCHER.getPath()));
+
+      // Cargar el root
+      StackPane root = loader.load();
+
+      // Obtener el controlador
+      RootController rootController = loader.getController();
+      root.setUserData(rootController);
 
       // Crear la escena
       Scene scene = new Scene(root);
@@ -32,6 +39,5 @@ public class App extends Application {
       stage.setHeight(800);
       stage.setScene(scene);
       stage.show();
-
    }
 }

@@ -9,6 +9,8 @@
           maxWidth="-Infinity"
           minHeight="-Infinity"
           minWidth="-Infinity"
+          prefHeight="800.0"
+          prefWidth="800.0"
           stylesheets="@css/LoginScreen.css"
           xmlns="http://javafx.com/javafx/24.0.1"
           fx:controller="main.java.controllers.LoginScreenController">
