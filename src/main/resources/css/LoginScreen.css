@@ -35,36 +35,13 @@
     -fx-border-width: 3px;
 }
 
-/* Clase CSS para estilizar un PasswordField */
-.password_text_field {
-    -fx-max-width: 400px; /* Ancho máximo (igual que el TextField) */
-    -fx-max-height: 60px; /* Altura máxima (igual que el TextField) */
-    -fx-background-color: #16253A; /* Fondo (igual que el TextField) */
-    -fx-text-fill: #FFFFFF; /* Color del texto (igual que el TextField) */
-    -fx-font-family: "JejuMyeongjo"; /* Tipo de fuente (igual que el TextField) */
-    -fx-font-size: 18px; /* Tamaño de la fuente (igual que el TextField) */
-    -fx-prompt-text-fill: #B7B3B3; /* Color del texto de sugerencia (placeholder) (igual que el TextField) */
-    -fx-border-color: #00BBFF; /* Color del borde (igual que el TextField) */
-    -fx-border-width: 1px; /* Grosor del borde (igual que el TextField) */
-    -fx-border-radius: 15px; /* Radio de las esquinas del borde (igual que el TextField) */
-}
-
-/* Estilo para cuando el PasswordField tiene el foco */
-.password_text_field:focused {
-    -fx-border-width: 3px; /* Grosor del borde al enfocar (igual que el TextField) */
-}
-
-.enter_square {
-    -fx-fill: linear-gradient(to right, #A0DAFF 0%, #1977AD 100%);; /* Color de relleno */
-}
-
 /* Estilo base para el Label que simula un enlace */
 .create_account {
     -fx-text-fill: #77E6FF; /* Color del texto azul (como un enlace predeterminado) */
     -fx-underline: true; /* Subrayado del texto */
     -fx-cursor: hand; /* Cambia el cursor a una mano (puntero de enlace) */
     -fx-font-family: "JejuMyeongjo"; /* Usa la misma fuente que tus TextField */
-    -fx-font-size: 20px; /* Un tamaño de fuente adecuado para un enlace */
+    -fx-font-size: 18px; /* Un tamaño de fuente adecuado para un enlace */
 }
 
 /* Estilo para cuando el ratón está sobre el Label (hover) */
@@ -78,4 +55,37 @@
 .create_account:pressed {
     -fx-text-fill: #6A5ACD; /* Un color diferente (SlateBlue) para indicar que ha sido presionado */
     -fx-underline: true; /* Asegura que el subrayado se mantenga al presionar */
+}
+
+/* Clase CSS para un botón con gradiente lineal azul */
+.gradient-button {
+    -fx-background-color: linear-gradient(to right, #A0DAFF 0%, #1977AD 100%); /* Gradiente de azul claro a azul oscuro */
+    -fx-text-fill: white; /* Color del texto del botón (para que contraste bien) */
+    -fx-font-family: "JejuMyeongjo"; /* Fuente consistente con tus otros elementos */
+    -fx-font-size: 16px; /* Tamaño de fuente del botón */
+    -fx-font-weight: bold; /* Texto en negrita */
+    -fx-border-radius: 5px; /* Bordes ligeramente redondeados */
+    -fx-background-radius: 25px; /* El fondo también se redondea */
+    -fx-padding: 10px 20px; /* Espacio interno del botón */
+    -fx-max-width: 100px;
+    -fx-max-height: 100px;
+}
+
+/* Estilo para cuando el ratón está sobre el botón (hover) */
+.gradient-button:hover {
+    -fx-background-color: linear-gradient(to right, #1977AD 0%, #A0DAFF 100%);
+    -fx-cursor: hand; /* Cambiar el cursor a una mano */
+}
+
+/* Estilo para cuando el botón está siendo presionado (clic) */
+.gradient-button:pressed {
+    -fx-background-color: #008CBA; /* Un azul sólido o más oscuro al presionar para dar retroalimentación */
+    -fx-padding: 11px 19px 9px 21px; /* Ligeramente más "hundido" visualmente */
+}
+
+/* Estilo para cuando el botón está deshabilitado */
+.gradient-button:disabled {
+    -fx-background-color: #CCCCCC; /* Un gris claro */
+    -fx-text-fill: #666666; /* Texto gris más oscuro */
+    -fx-opacity: 0.7; /* Ligeramente transparente */
 }
