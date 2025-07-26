@@ -1,5 +1,5 @@
 /* Estilo para el fondo con gradiente lineal */
-.root {
+.login_background {
     /* Define un gradiente lineal:
      * - "to bottom right": la dirección del gradiente (de arriba a la izquierda a abajo a la derecha).
      * - Color1 (0%): El color del inicio del gradiente (arriba a la izquierda).

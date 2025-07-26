@@ -14,14 +14,11 @@ internal object ResourceLoader {
     */
 
    internal fun getResource(path: String): URL {
-
       // 1. It tries to load it in the same way as Java: Class.getResource(path).
       val resource: URL? = ResourceLoader::class.java.getResource(path)
 
       // 2. If it is null, it prints in err exactly as before:
-      if (resource == null) {
-         System.err.println(Strings.FXML_404.text + path)
-      }
+      if (resource == null) System.err.println(Strings.FXML_404.text + path)
 
       // 3. It is verified and, if it is still null, an IllegalStateException is thrown with the message:
       return checkNotNull(resource) { "${Strings.RESOURCE_404.text}$path" }

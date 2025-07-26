@@ -5,8 +5,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.StackPane;
 
 public class LoginScreenController {
+
+   @FXML
+   private StackPane loginPane;
 
    @FXML
    private Label lbl_message_login;

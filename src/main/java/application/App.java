@@ -19,25 +19,18 @@ public class App extends Application {
 
    @Override
    public void start(Stage stage) throws IOException {
-
-      // Crear el loader
+      
       FXMLLoader loader = new FXMLLoader(ResourceLoader.INSTANCE.getResource$EPNprende(Paths.LAUNCHER.getPath()));
-
-      // Cargar el root
       StackPane root = loader.load();
-
-      // Obtener el controlador
       RootController rootController = loader.getController();
-      root.setUserData(rootController);
 
-      // Crear la escena
       Scene scene = new Scene(root);
-
-      // Establecer la escena en el escenario
-      stage.centerOnScreen();
-      stage.setWidth(800);
-      stage.setHeight(800);
       stage.setScene(scene);
+
+      rootController.showLogin(stage);
+
+      stage.centerOnScreen();
       stage.show();
    }
+
 }
