@@ -1,3 +1,7 @@
 package main.java.application;
 
-public class Launcher { public static void main(String[] args) { App.main(args); }}
+public final class Launcher {
+   public static void main(String[] args) {
+      App.main(args);
+   }
+}

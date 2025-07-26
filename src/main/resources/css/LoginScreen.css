@@ -60,7 +60,7 @@
 /* Clase CSS para un botón con gradiente lineal azul */
 .gradient-button {
     -fx-background-color: linear-gradient(to right, #A0DAFF 0%, #1977AD 100%); /* Gradiente de azul claro a azul oscuro */
-    -fx-text-fill: white; /* Color del texto del botón (para que contraste bien) */
+    -fx-text-fill: #FFFFFF; /* Color del texto del botón (para que contraste bien) */
     -fx-font-family: "JejuMyeongjo"; /* Fuente consistente con tus otros elementos */
     -fx-font-size: 16px; /* Tamaño de fuente del botón */
     -fx-font-weight: bold; /* Texto en negrita */
