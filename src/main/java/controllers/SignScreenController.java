@@ -12,7 +12,10 @@ import javafx.scene.shape.SVGPath;
 import javafx.stage.Stage;
 import main.java.interfaces.ViewLifecycle;
 import main.java.utils.Strings;
-import main.kotlin.utils.CheckEmailFormat;
+import main.kotlin.firebase.RegisterData;
+import main.kotlin.models.sign.CheckEmailFormat;
+import main.kotlin.models.sign.CheckNameFormat;
+import main.kotlin.models.sign.CheckPassword;
 
 public class SignScreenController implements ViewLifecycle {
 
@@ -54,6 +57,18 @@ public class SignScreenController implements ViewLifecycle {
    @FXML
    private TextField txt_view_password;
 
+   private static byte checkPassword(String password, String password_confirmation) {
+
+      boolean isFormatPasswordCorrect = CheckPassword.INSTANCE.checkPasswordFormat$EPNprende(password);
+      boolean isLengthPasswordCorrect = CheckPassword.INSTANCE.checkPasswordLength$EPNprende(password);
+      boolean isSimilarPassword = CheckPassword.INSTANCE.checkPasswordSimilarity$EPNprende(password, password_confirmation);
+
+      if (!isSimilarPassword) return 1;
+      else if (!isFormatPasswordCorrect) return 2;
+      else if (!isLengthPasswordCorrect) return 3;
+      else return 0;
+   }
+
    @Override
    public void onShow() {
       lbl_message_login.setText(Strings.EMPTY_TEXT.getText());
@@ -69,11 +84,18 @@ public class SignScreenController implements ViewLifecycle {
       txt_field_email.textProperty().addListener((_, _, _) -> {
          lbl_message_login.setText(Strings.EMPTY_TEXT.getText());
          lbl_message_password.setText(Strings.EMPTY_TEXT.getText());
-         updateEmailIcons();
+         checkEmail();
       });
 
-      pass_field.textProperty().addListener((_, _, _)
-            -> lbl_message_password.setText(Strings.EMPTY_TEXT.getText()));
+      pass_field.textProperty().addListener((_, _, _) -> {
+         lbl_message_login.setText(Strings.EMPTY_TEXT.getText());
+         lbl_message_password.setText(Strings.EMPTY_TEXT.getText());
+      });
+
+      confirm_field.textProperty().addListener((_, _, _) -> {
+         lbl_message_login.setText(Strings.EMPTY_TEXT.getText());
+         lbl_message_password.setText(Strings.EMPTY_TEXT.getText());
+      });
 
       // Vinculación bidireccional entre campos
       pass_field.textProperty().bindBidirectional(txt_view_password.textProperty());
@@ -85,6 +107,10 @@ public class SignScreenController implements ViewLifecycle {
       btn_view_password.visibleProperty().bind(passwordVisible.not());
    }
 
+   @FXML
+   void togglePasswordVisibility() {
+      passwordVisible.set(!passwordVisible.get());
+   }
 
    @FXML
    void changeToLoginAction() {
@@ -94,12 +120,21 @@ public class SignScreenController implements ViewLifecycle {
 
    @FXML
    void signAction() {
+
+      if (!validateFields()) return;
+
+      String name = txt_field_name.getText();
+      String email = txt_field_email.getText();
+      String password = txt_view_password.getText();
+
+      RegisterData registerData = new RegisterData(name, email, password);
+      System.out.println(registerData);
+
       Stage stage = (Stage) signPane.getScene().getWindow();
       RootController.showDashboard(stage);
    }
 
-
-   private boolean updateEmailIcons() {
+   private boolean checkEmail() {
       String email = txt_field_email.getText();
 
       if (email.isEmpty()) {
@@ -108,46 +143,73 @@ public class SignScreenController implements ViewLifecycle {
          return false;
       }
 
-      boolean isRight = CheckEmailFormat.INSTANCE.checkEmailFormat$EPNprende(email);
-      svg_correct_mail.setVisible(isRight);
-      svg_incorrect_mail.setVisible(!isRight);
-      return isRight;
+      boolean isEmailCorrect = CheckEmailFormat.INSTANCE.checkEmailFormat$EPNprende(email);
+      svg_correct_mail.setVisible(isEmailCorrect);
+      svg_incorrect_mail.setVisible(!isEmailCorrect);
+
+      return isEmailCorrect;
    }
 
-   private void catchData() {
-      String email = updateEmailIcons() ? txt_field_email.getText() : null;
+   private boolean checkNameField() {
       String name = txt_field_name.getText();
-   }
-
-   @FXML
-   void togglePasswordVisibility() {
-      passwordVisible.set(!passwordVisible.get());
+      return CheckNameFormat.INSTANCE.checkNameFormat$EPNprende(name);
    }
 
 
    private boolean validateFields() {
+      String email = txt_field_email.getText();
+      String name = txt_field_name.getText();
+      String password = pass_field.getText();
+      String confirmPassword = confirm_field.getText();
 
-      String password = "12345";
+      byte passwordCheckResult = checkPassword(password, confirmPassword);
 
-      if (txt_field_email.getText().isEmpty()) {
-         lbl_message_login.setText(Strings.EMPTY_TEXT.getText());
-         lbl_message_login.setText(Strings.LOGIN_EMAIL_EMPTY.getText());
-         lbl_message_password.setText(Strings.EMPTY_TEXT.getText());
+      if (email.isEmpty()) {
+         lbl_message_login.setText(Strings.EMAIL_EMPTY.getText());
          return false;
-      } else if (pass_field.getText().isEmpty()) {
-         lbl_message_login.setText(Strings.EMPTY_TEXT.getText());
-         lbl_message_login.setText(Strings.LOGIN_PASSWORD_EMPTY.getText());
-         lbl_message_password.setText(Strings.LOGIN_PASSWORD_EMPTY.getText());
+      }
+
+      if (name.isEmpty()) {
+         lbl_message_login.setText(Strings.NAME_EMPTY.getText());
          return false;
-      } else if (!updateEmailIcons()) {
-         lbl_message_login.setText(Strings.EMPTY_TEXT.getText());
-         lbl_message_login.setText(Strings.LOGIN_EMAIL_FAILED.getText());
+      }
+
+      if (password.isEmpty()) {
+         lbl_message_password.setText(Strings.PASSWORD_EMPTY.getText());
          return false;
-      } else if (!pass_field.getText().equals(password)) {
-         lbl_message_login.setText(Strings.EMPTY_TEXT.getText());
-         lbl_message_login.setText(Strings.LOGIN_PASSWORD_FAILED.getText());
+      }
+
+      if (confirmPassword.isEmpty()) {
+         lbl_message_password.setText(Strings.CONFIRM_PASSWORD_EMPTY.getText());
          return false;
-      } else return true;
+      }
+
+      if (!checkEmail()) {
+         lbl_message_login.setText(Strings.INCORRECT_EMAIL.getText());
+         return false;
+      }
+
+      if (!checkNameField()) {
+         lbl_message_login.setText(Strings.INCORRECT_NAME.getText());
+         return false;
+      }
+
+      return switch (passwordCheckResult) {
+         case 1 -> {
+            lbl_message_password.setText(Strings.PASSWORD_NOT_MATCH.getText());
+            yield false;
+         }
+         case 2 -> {
+            lbl_message_password.setText(Strings.INCORRECT_PASSWORD_FORMAT.getText());
+            yield false;
+         }
+         case 3 -> {
+            lbl_message_password.setText(Strings.INCORRECT_PASSWORD_LENGTH.getText());
+            yield false;
+         }
+         default -> true;
+      };
+
    }
 
 }

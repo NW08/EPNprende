@@ -1,4 +1,4 @@
-package main.kotlin.utils
+package main.kotlin.models.sign
 
 internal object CheckPassword {
    internal fun checkPasswordLength(password: String): Boolean {

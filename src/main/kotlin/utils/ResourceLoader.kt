@@ -18,9 +18,9 @@ internal object ResourceLoader {
       val resource: URL? = ResourceLoader::class.java.getResource(path)
 
       // 2. If it is null, it prints in err exactly as before:
-      if (resource == null) System.err.println(Strings.FXML_404.text + path)
+      if (resource == null) System.err.println(Strings.MISSING_FXML.text + path)
 
       // 3. It is verified and, if it is still null, an IllegalStateException is thrown with the message:
-      return checkNotNull(resource) { "${Strings.RESOURCE_404.text}$path" }
+      return checkNotNull(resource) { "${Strings.MISSING_RESOURCE.text}$path" }
    }
 }
