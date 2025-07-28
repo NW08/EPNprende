@@ -16,24 +16,37 @@
     -fx-stroke-width: 2px; /* Ancho del borde */
 }
 
-/* Clase CSS para estilizar un TextField */
 .email_text_field {
-    -fx-max-width: 400px; /* Ancho preferido */
-    -fx-max-height: 60px; /* Altura preferida */
-    -fx-background-color: #16253A; /* Fondo */
-    -fx-text-fill: #FFFFFF; /* Color del texto */
-    -fx-font-family: "JejuMyeongjo"; /* Tipo de fuente */
-    -fx-font-size: 18px; /* Tamaño de la fuente */
-    -fx-prompt-text-fill: #B7B3B3; /* Color del texto de sugerencia (placeholder) */
-    -fx-border-color: #00BBFF; /* DodgerBlue (azul brillante) */
-    -fx-border-width: 1px; /* Grosor del borde */
-    -fx-border-radius: 15px; /* Radio de las esquinas del borde */
+    -fx-max-width: 400px;
+    -fx-max-height: 60px;
+
+    /* Fondos con redondeo igual */
+    -fx-background-color: #16253A, transparent;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 15, 15;
+
+    /* Borde redondeado visible */
+    -fx-border-color: #00BBFF;
+    -fx-border-radius: 15;
+    -fx-border-width: 1px;
+
+    /* Texto y placeholder */
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: "JejuMyeongjo";
+    -fx-font-size: 18px;
+    -fx-prompt-text-fill: #B7B3B3;
 }
 
-/* Estilo para cuando el TextField tiene el foco */
 .email_text_field:focused {
     -fx-border-width: 3px;
 }
+
+/* Opcional: para asegurar que capas internas no pinten */
+.email_text_field .text-field-background,
+.email_text_field .content {
+    -fx-background-color: transparent;
+}
+
 
 /* Estilo base para el Label que simula un enlace */
 .create_account {
@@ -88,4 +101,34 @@
     -fx-background-color: #CCCCCC; /* Un gris claro */
     -fx-text-fill: #666666; /* Texto gris más oscuro */
     -fx-opacity: 0.7; /* Ligeramente transparente */
+}
+
+
+/* Dar estilo al label */
+.label_error {
+    -fx-font-size: 20px;
+}
+
+.label_error .text {
+    -fx-fill: FF0000; /* Color interior de las letras */
+    -fx-stroke: FF0000; /* Color del contorno (borde de las letras) */
+    -fx-stroke-width: 1px; /* Grosor del contorno */
+    -fx-font-family: "JejuMyeongjo"; /* Usa la misma fuente que tus TextField */
+}
+
+.transparent-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: #00BBFF;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.transparent-button:pressed, .transparent-button:hover {
+    -fx-background-color: transparent;
+}
+
+.transparent-button:focused {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
 }

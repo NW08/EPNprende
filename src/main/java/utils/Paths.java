@@ -3,6 +3,7 @@ package main.java.utils;
 public enum Paths {
 
    LOGIN_SCREEN("/main/resources/LoginScreen.fxml"),
+   SIGN_SCREEN("/main/resources/SignScreen.fxml"),
    DASHBOARD_SCREEN("/main/resources/DashboardScreen.fxml"),
    LAUNCHER("/main/resources/RootScreen.fxml");
 
