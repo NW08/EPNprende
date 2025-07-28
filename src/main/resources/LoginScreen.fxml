@@ -224,7 +224,7 @@
 
         <Button fx:id="btn_view_password"
                 mnemonicParsing="false"
-                onAction="#viewPassword"
+                onAction="#togglePasswordVisibility"
                 styleClass="transparent-button"
                 translateX="160.0"
                 GridPane.halignment="CENTER"
@@ -247,7 +247,7 @@
 
         <Button fx:id="btn_hide_password"
                 mnemonicParsing="false"
-                onAction="#hidePassword"
+                onAction="#togglePasswordVisibility"
                 styleClass="transparent-button"
                 translateX="160.0"
                 visible="false"

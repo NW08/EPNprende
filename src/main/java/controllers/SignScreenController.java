@@ -8,6 +8,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.SVGPath;
+import javafx.stage.Stage;
 
 public class SignScreenController {
 
@@ -49,7 +50,8 @@ public class SignScreenController {
 
    @FXML
    void changeToLoginAction(ActionEvent event) {
-
+      Stage stage = (Stage) signPane.getScene().getWindow();
+      RootController.showLogin(stage);
    }
 
    @FXML
@@ -59,7 +61,8 @@ public class SignScreenController {
 
    @FXML
    void signAction(ActionEvent event) {
-
+      Stage stage = (Stage) signPane.getScene().getWindow();
+      RootController.showDashboard(stage);
    }
 
    @FXML

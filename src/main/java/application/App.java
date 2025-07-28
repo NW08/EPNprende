@@ -7,7 +7,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import main.java.controllers.RootController;
 import main.java.utils.Paths;
-import main.kotlin.ResourceLoader;
+import main.kotlin.utils.ResourceLoader;
 
 import java.io.IOException;
 
@@ -20,14 +20,12 @@ public class App extends Application {
 
    @Override
    public void start(Stage stage) throws IOException {
+
       // Creación de la interfaz base desde el FXML.
       FXMLLoader loader = new FXMLLoader(ResourceLoader.INSTANCE.getResource$EPNprende(Paths.LAUNCHER.getPath()));
 
       // Se carga la interfaz base previamente hecha en un layout raíz.
       StackPane root = loader.load();
-
-      // Aquí se hace una invocación del controlador de la interfaz base para poder usar la lógica que este contiene.
-      RootController rootController = loader.getController();
 
       // Se crea la escena con el layout raíz que contiene la interfaz cargada.
       Scene scene = new Scene(root);
@@ -36,7 +34,7 @@ public class App extends Application {
       stage.setScene(scene);
 
       // Mediante el controlador se invoca a la pantalla de login para que esta se muestre en la escena.
-      rootController.showLogin(stage);
+      RootController.showLogin(stage);
 
       // Se invoca una función que centra la ventana a mostrarse.
       stage.centerOnScreen();

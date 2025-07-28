@@ -1,4 +1,4 @@
-package main.kotlin
+package main.kotlin.utils
 
 import main.java.utils.Strings
 import java.net.URL
