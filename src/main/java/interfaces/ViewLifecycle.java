@@ -6,5 +6,4 @@ public interface ViewLifecycle {
 
    default void onHide() {
    }
-
 }

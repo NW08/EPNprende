@@ -12,7 +12,7 @@ import javafx.scene.shape.SVGPath;
 import javafx.stage.Stage;
 import main.java.interfaces.ViewLifecycle;
 import main.java.utils.Strings;
-import main.kotlin.utils.CheckEmailFormat;
+import main.kotlin.models.login.CheckEmailDatabase;
 
 public class LoginScreenController implements ViewLifecycle {
 
@@ -101,7 +101,7 @@ public class LoginScreenController implements ViewLifecycle {
          return false;
       }
 
-      boolean isRight = CheckEmailFormat.INSTANCE.checkEmailFormat$EPNprende(email);
+      boolean isRight = CheckEmailDatabase.INSTANCE.checkEmailInDataBase$EPNprende(email);
       svg_correct_email.setVisible(isRight);
       svg_incorrect_email.setVisible(!isRight);
       return isRight;

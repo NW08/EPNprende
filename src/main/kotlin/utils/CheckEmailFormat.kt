@@ -1,8 +1,9 @@
 package main.kotlin.utils
 
 internal object CheckEmailFormat {
+   private val pattern = Regex("^[a-zA-Z][a-zA-Z0-9_.+-]{2,}@epn\\.edu\\.ec$")
+
    internal fun checkEmailFormat(email: String): Boolean {
-      val pattern = Regex("^[A-Za-z0-9+_.-]+@epn\\.edu\\.ec$")
       return email.matches(pattern)
    }
 }
