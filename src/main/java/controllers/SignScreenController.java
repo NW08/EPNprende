@@ -57,8 +57,9 @@ public class SignScreenController implements ViewLifecycle {
    @FXML
    private TextField txt_view_password;
 
-   private static byte checkPassword(String password, String password_confirmation) {
 
+   // 1. Métodos Estáticos
+   private static byte checkPassword(String password, String password_confirmation) {
       boolean isFormatPasswordCorrect = CheckPassword.INSTANCE.checkPasswordFormat$EPNprende(password);
       boolean isLengthPasswordCorrect = CheckPassword.INSTANCE.checkPasswordLength$EPNprende(password);
       boolean isSimilarPassword = CheckPassword.INSTANCE.checkPasswordSimilarity$EPNprende(password, password_confirmation);
@@ -69,22 +70,19 @@ public class SignScreenController implements ViewLifecycle {
       else return 0;
    }
 
-   @Override
-   public void onShow() {
-      lbl_message_login.setText(Strings.EMPTY_TEXT.getText());
-      lbl_message_password.setText(Strings.EMPTY_TEXT.getText());
-      txt_field_email.clear();
-      txt_field_name.clear();
-      pass_field.clear();
-      confirm_field.clear();
-      passwordVisible.set(false);
-   }
 
+   // 2. Ciclo de vida
+   @FXML
    public void initialize() {
       txt_field_email.textProperty().addListener((_, _, _) -> {
          lbl_message_login.setText(Strings.EMPTY_TEXT.getText());
          lbl_message_password.setText(Strings.EMPTY_TEXT.getText());
          checkEmail();
+      });
+
+      txt_field_name.textProperty().addListener((_, _, _) -> {
+         lbl_message_login.setText(Strings.EMPTY_TEXT.getText());
+         lbl_message_password.setText(Strings.EMPTY_TEXT.getText());
       });
 
       pass_field.textProperty().addListener((_, _, _) -> {
@@ -107,6 +105,24 @@ public class SignScreenController implements ViewLifecycle {
       btn_view_password.visibleProperty().bind(passwordVisible.not());
    }
 
+   @Override
+   public void onShow() {
+      lbl_message_login.setText(Strings.EMPTY_TEXT.getText());
+      lbl_message_password.setText(Strings.EMPTY_TEXT.getText());
+      txt_field_email.clear();
+      txt_field_name.clear();
+      pass_field.clear();
+      confirm_field.clear();
+      passwordVisible.set(false);
+   }
+
+
+   // 3. Event Handlers
+   @FXML
+   void onKeyPressed(javafx.scene.input.KeyEvent event) {
+      if (event.getCode() == javafx.scene.input.KeyCode.ENTER) signAction();
+   }
+
    @FXML
    void togglePasswordVisibility() {
       passwordVisible.set(!passwordVisible.get());
@@ -120,7 +136,6 @@ public class SignScreenController implements ViewLifecycle {
 
    @FXML
    void signAction() {
-
       if (!validateFields()) return;
 
       String name = txt_field_name.getText();
@@ -132,6 +147,63 @@ public class SignScreenController implements ViewLifecycle {
 
       Stage stage = (Stage) signPane.getScene().getWindow();
       RootController.showDashboard(stage);
+   }
+
+
+   // 4. Validaciones
+   private boolean validateFields() {
+      String email = txt_field_email.getText();
+      String name = txt_field_name.getText();
+      String password = pass_field.getText();
+      String confirmPassword = confirm_field.getText();
+
+      byte passwordCheckResult = checkPassword(password, confirmPassword);
+
+      if (email.isEmpty()) {
+         lbl_message_login.setText(Strings.ERROR_EMAIL_EMPTY.getText());
+         return false;
+      }
+
+      if (name.isEmpty()) {
+         lbl_message_login.setText(Strings.ERROR_NAME_EMPTY.getText());
+         return false;
+      }
+
+      if (password.isEmpty()) {
+         lbl_message_password.setText(Strings.ERROR_PASSWORD_EMPTY.getText());
+         return false;
+      }
+
+      if (confirmPassword.isEmpty()) {
+         lbl_message_password.setText(Strings.ERROR_PASSWORD_MISMATCH.getText());
+         return false;
+      }
+
+      if (!checkEmail()) {
+         lbl_message_login.setText(Strings.ERROR_EMAIL_INCORRECT.getText());
+         return false;
+      }
+
+      if (!checkNameField()) {
+         lbl_message_login.setText(Strings.ERROR_NAME_INCORRECT.getText());
+         return false;
+      }
+
+      return switch (passwordCheckResult) {
+         case 1 -> {
+            lbl_message_password.setText(Strings.ERROR_PASSWORD_MISMATCH.getText());
+            yield false;
+         }
+         case 2 -> {
+            lbl_message_password.setText(Strings.ERROR_PASSWORD_FORMAT.getText());
+            yield false;
+         }
+         case 3 -> {
+            lbl_message_password.setText(Strings.ERROR_PASSWORD_LENGTH.getText());
+            yield false;
+         }
+         default -> true;
+      };
    }
 
    private boolean checkEmail() {
@@ -154,62 +226,4 @@ public class SignScreenController implements ViewLifecycle {
       String name = txt_field_name.getText();
       return CheckNameFormat.INSTANCE.checkNameFormat$EPNprende(name);
    }
-
-
-   private boolean validateFields() {
-      String email = txt_field_email.getText();
-      String name = txt_field_name.getText();
-      String password = pass_field.getText();
-      String confirmPassword = confirm_field.getText();
-
-      byte passwordCheckResult = checkPassword(password, confirmPassword);
-
-      if (email.isEmpty()) {
-         lbl_message_login.setText(Strings.EMAIL_EMPTY.getText());
-         return false;
-      }
-
-      if (name.isEmpty()) {
-         lbl_message_login.setText(Strings.NAME_EMPTY.getText());
-         return false;
-      }
-
-      if (password.isEmpty()) {
-         lbl_message_password.setText(Strings.PASSWORD_EMPTY.getText());
-         return false;
-      }
-
-      if (confirmPassword.isEmpty()) {
-         lbl_message_password.setText(Strings.CONFIRM_PASSWORD_EMPTY.getText());
-         return false;
-      }
-
-      if (!checkEmail()) {
-         lbl_message_login.setText(Strings.INCORRECT_EMAIL.getText());
-         return false;
-      }
-
-      if (!checkNameField()) {
-         lbl_message_login.setText(Strings.INCORRECT_NAME.getText());
-         return false;
-      }
-
-      return switch (passwordCheckResult) {
-         case 1 -> {
-            lbl_message_password.setText(Strings.PASSWORD_NOT_MATCH.getText());
-            yield false;
-         }
-         case 2 -> {
-            lbl_message_password.setText(Strings.INCORRECT_PASSWORD_FORMAT.getText());
-            yield false;
-         }
-         case 3 -> {
-            lbl_message_password.setText(Strings.INCORRECT_PASSWORD_LENGTH.getText());
-            yield false;
-         }
-         default -> true;
-      };
-
-   }
-
 }

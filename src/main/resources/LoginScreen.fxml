@@ -149,6 +149,7 @@
                    promptText="Email"
                    styleClass="email_text_field"
                    GridPane.halignment="CENTER"
+                   onKeyPressed="#onKeyPressed"
                    GridPane.rowIndex="4"
                    GridPane.valignment="CENTER"
         />
@@ -205,6 +206,7 @@
 
         <TextField fx:id="txt_view_password"
                    styleClass="email_text_field"
+                   onKeyPressed="#onKeyPressed"
                    GridPane.halignment="CENTER"
                    GridPane.rowIndex="5"
                    GridPane.valignment="CENTER"
@@ -213,6 +215,7 @@
         <PasswordField fx:id="pass_field"
                        promptText="Password"
                        styleClass="email_text_field"
+                       onKeyPressed="#onKeyPressed"
                        GridPane.halignment="CENTER"
                        GridPane.rowIndex="5"
                        GridPane.valignment="CENTER">

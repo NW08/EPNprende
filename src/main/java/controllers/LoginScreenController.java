@@ -45,12 +45,42 @@ public class LoginScreenController implements ViewLifecycle {
    @FXML
    private TextField txt_view_password;
 
+
+   // 1. Ciclo de Vida
+   @FXML
+   public void initialize() {
+      txt_field_email.textProperty().addListener((_, _, _) -> {
+         lbl_message.setText(Strings.EMPTY_TEXT.getText());
+         getVerifiedEmail();
+      });
+
+      pass_field.textProperty().addListener((_, _, _)
+            -> lbl_message.setText(Strings.EMPTY_TEXT.getText()));
+
+
+      // Vinculación bidireccional entre campos
+      pass_field.textProperty().bindBidirectional(txt_view_password.textProperty());
+
+      // Bind de visibilidad
+      txt_view_password.visibleProperty().bind(passwordVisible);
+      pass_field.visibleProperty().bind(passwordVisible.not());
+      btn_hide_password.visibleProperty().bind(passwordVisible);
+      btn_view_password.visibleProperty().bind(passwordVisible.not());
+   }
+
    @Override
    public void onShow() {
       lbl_message.setText(Strings.EMPTY_TEXT.getText());
       txt_field_email.clear();
       pass_field.clear();
       passwordVisible.set(false);
+   }
+
+
+   // 2. Events -- Handlers
+   @FXML
+   void onKeyPressed(javafx.scene.input.KeyEvent event) {
+      if (event.getCode() == javafx.scene.input.KeyCode.ENTER) loginAction();
    }
 
    @FXML
@@ -64,29 +94,39 @@ public class LoginScreenController implements ViewLifecycle {
       RootController.showSign(stage);
    }
 
-
-   public void initialize() {
-      txt_field_email.textProperty().addListener((_, _, _) -> {
-         lbl_message.setText(Strings.EMPTY_TEXT.getText());
-         getVerifiedEmail();
-      });
-
-      // Vinculación bidireccional entre campos
-      pass_field.textProperty().bindBidirectional(txt_view_password.textProperty());
-
-      // Bind de visibilidad
-      txt_view_password.visibleProperty().bind(passwordVisible);
-      pass_field.visibleProperty().bind(passwordVisible.not());
-      btn_hide_password.visibleProperty().bind(passwordVisible);
-      btn_view_password.visibleProperty().bind(passwordVisible.not());
-   }
-
-
    @FXML
    void loginAction() {
       if (!validateFields()) return;
       Stage stage = (Stage) loginPane.getScene().getWindow();
       RootController.showDashboard(stage);
+   }
+
+
+   // 3. Validaciones
+   private boolean validateFields() {
+      String email = txt_field_email.getText();
+      String password = pass_field.getText();
+
+      if (email.isEmpty()) {
+         lbl_message.setText(Strings.ERROR_EMAIL_EMPTY.getText());
+         return false;
+      }
+
+      if (password.isEmpty()) {
+         lbl_message.setText(Strings.ERROR_PASSWORD_EMPTY.getText());
+         return false;
+      }
+
+      if (!getVerifiedEmail()) {
+         lbl_message.setText(Strings.ERROR_EMAIL_INCORRECT.getText());
+         return false;
+      }
+
+      if (!getVerifiedCredential()) {
+         lbl_message.setText(Strings.ERROR_PASSWORD_INCORRECT.getText());
+         return false;
+      }
+      return true;
    }
 
    private boolean getVerifiedEmail() {
@@ -108,31 +148,5 @@ public class LoginScreenController implements ViewLifecycle {
    private boolean getVerifiedCredential() {
       String password = pass_field.getText();
       return CheckDatabase.INSTANCE.checkPasswordInDataBase$EPNprende(password);
-   }
-
-   private boolean validateFields() {
-      String email = txt_field_email.getText();
-      String password = pass_field.getText();
-
-      if (email.isEmpty()) {
-         lbl_message.setText(Strings.EMAIL_EMPTY.getText());
-         return false;
-      }
-
-      if (password.isEmpty()) {
-         lbl_message.setText(Strings.PASSWORD_EMPTY.getText());
-         return false;
-      }
-
-      if (!getVerifiedEmail()) {
-         lbl_message.setText(Strings.INCORRECT_EMAIL.getText());
-         return false;
-      }
-
-      if (!getVerifiedCredential()) {
-         lbl_message.setText(Strings.INCORRECT_PASSWORD.getText());
-         return false;
-      }
-      return true;
    }
 }

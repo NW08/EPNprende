@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 import main.java.interfaces.ViewLifecycle;
+import main.kotlin.utils.ResourceLoader;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -26,17 +27,14 @@ public enum ScreenManager {
    }
 
    public static void show(String fxmlPath) {
-      if (root == null)
-         throw new IllegalStateException("ScreenManager no inicializado. Llama a init(root) primero.");
+      if (root == null) throw new IllegalStateException(Strings.ERROR_SCREEN_MANAGER_NOT_INITIALIZED.getText());
 
       ViewHolder next = cache.computeIfAbsent(fxmlPath, ScreenManager::load);
       fadeSwitch(next);
    }
 
    private static void fadeSwitch(ViewHolder next) {
-      if (current != null && current.controller instanceof ViewLifecycle vl) {
-         vl.onHide();
-      }
+      if (current != null && current.controller instanceof ViewLifecycle vl) vl.onHide();
 
       Parent newView = next.root;
       if (root.getChildren().isEmpty()) {
@@ -67,19 +65,13 @@ public enum ScreenManager {
 
    private static ViewHolder load(String path) {
       try {
-         FXMLLoader loader = new FXMLLoader(ScreenManager.class.getResource(path));
+         FXMLLoader loader = new FXMLLoader(ResourceLoader.INSTANCE.getResource$EPNprende(path));
          Parent root = loader.load();
          Object controller = loader.getController();
          return new ViewHolder(root, controller);
       } catch (IOException ex) {
          throw new RuntimeException("Error cargando FXML: " + path, ex);
       }
-   }
-
-   public static <T> T getController(String fxmlPath, Class<T> type) {
-      ViewHolder vh = cache.get(fxmlPath);
-      if (vh == null) return null;
-      return type.cast(vh.controller);
    }
 
    private record ViewHolder(Parent root, Object controller) {
