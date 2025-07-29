@@ -1,0 +1,134 @@
+/* Estilo para el fondo con gradiente lineal */
+.login_background {
+    /* Define un gradiente lineal:
+     * - "to bottom right": la dirección del gradiente (de arriba a la izquierda a abajo a la derecha).
+     * - Color1 (0%): El color del inicio del gradiente (arriba a la izquierda).
+     * - Color2 (50%): El color en el punto medio del gradiente.
+     * - Color3 (100%): El color del final del gradiente (abajo a la derecha).
+     */
+    -fx-background-color: linear-gradient(to bottom right, #2B5C7D 0%, #16253A 50%, #182337 100%);
+}
+
+/* Clase CSS para un cuadrado con el logo con color de fondo y borde */
+.logo_square {
+    -fx-fill: #1B324A; /* Color de relleno */
+    -fx-stroke: #669BBD; /* Color del borde */
+    -fx-stroke-width: 2px; /* Ancho del borde */
+}
+
+.email_text_field {
+    -fx-max-width: 400px;
+    -fx-max-height: 60px;
+
+    /* Fondos con redondeo igual */
+    -fx-background-color: #16253A, transparent;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 15, 15;
+
+    /* Borde redondeado visible */
+    -fx-border-color: #00BBFF;
+    -fx-border-radius: 15;
+    -fx-border-width: 1px;
+
+    /* Texto y placeholder */
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: "JejuMyeongjo";
+    -fx-font-size: 18px;
+    -fx-prompt-text-fill: #B7B3B3;
+}
+
+.email_text_field:focused {
+    -fx-border-width: 3px;
+}
+
+/* Opcional: para asegurar que capas internas no pinten */
+.email_text_field .text-field-background,
+.email_text_field .content {
+    -fx-background-color: transparent;
+}
+
+
+/* Estilo base para el Label que simula un enlace */
+.create_account {
+    -fx-text-fill: #77E6FF; /* Color del texto azul (como un enlace predeterminado) */
+    -fx-underline: true; /* Subrayado del texto */
+    -fx-cursor: hand; /* Cambia el cursor a una mano (puntero de enlace) */
+    -fx-font-family: "JejuMyeongjo"; /* Usa la misma fuente que tus TextField */
+    -fx-font-size: 18px; /* Un tamaño de fuente adecuado para un enlace */
+}
+
+/* Estilo para cuando el ratón está sobre el Label (hover) */
+.create_account:hover {
+    -fx-text-fill: #1E90FF; /* Un azul un poco más brillante al pasar el ratón */
+    /* Puedes añadir o quitar el subrayado aquí si quieres un efecto más dinámico */
+    /* -fx-underline: false; */
+}
+
+/* Estilo para cuando el Label está siendo presionado (clic) */
+.create_account:pressed {
+    -fx-text-fill: #6A5ACD; /* Un color diferente (SlateBlue) para indicar que ha sido presionado */
+    -fx-underline: true; /* Asegura que el subrayado se mantenga al presionar */
+}
+
+/* Clase CSS para un botón con gradiente lineal azul */
+.gradient-button {
+    -fx-background-color: linear-gradient(to right, #A0DAFF 0%, #1977AD 100%); /* Gradiente de azul claro a azul oscuro */
+    -fx-text-fill: #FFFFFF; /* Color del texto del botón (para que contraste bien) */
+    -fx-font-family: "JejuMyeongjo"; /* Fuente consistente con tus otros elementos */
+    -fx-font-size: 16px; /* Tamaño de fuente del botón */
+    -fx-font-weight: bold; /* Texto en negrita */
+    -fx-border-radius: 5px; /* Bordes ligeramente redondeados */
+    -fx-background-radius: 25px; /* El fondo también se redondea */
+    -fx-padding: 10px 20px; /* Espacio interno del botón */
+    -fx-max-width: 100px;
+    -fx-max-height: 100px;
+}
+
+/* Estilo para cuando el ratón está sobre el botón (hover) */
+.gradient-button:hover {
+    -fx-background-color: linear-gradient(to right, #1977AD 0%, #A0DAFF 100%);
+    -fx-cursor: hand; /* Cambiar el cursor a una mano */
+}
+
+/* Estilo para cuando el botón está siendo presionado (clic) */
+.gradient-button:pressed {
+    -fx-background-color: #008CBA; /* Un azul sólido o más oscuro al presionar para dar retroalimentación */
+    -fx-padding: 11px 19px 9px 21px; /* Ligeramente más "hundido" visualmente */
+}
+
+/* Estilo para cuando el botón está deshabilitado */
+.gradient-button:disabled {
+    -fx-background-color: #CCCCCC; /* Un gris claro */
+    -fx-text-fill: #666666; /* Texto gris más oscuro */
+    -fx-opacity: 0.7; /* Ligeramente transparente */
+}
+
+
+/* Dar estilo al label */
+.label_error {
+    -fx-font-size: 20px;
+}
+
+.label_error .text {
+    -fx-fill: FF0000; /* Color interior de las letras */
+    -fx-stroke: FF0000; /* Color del contorno (borde de las letras) */
+    -fx-stroke-width: 1px; /* Grosor del contorno */
+    -fx-font-family: "JejuMyeongjo"; /* Usa la misma fuente que tus TextField */
+}
+
+.transparent-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: #00BBFF;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.transparent-button:pressed, .transparent-button:hover {
+    -fx-background-color: transparent;
+}
+
+.transparent-button:focused {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
