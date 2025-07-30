@@ -22,5 +22,7 @@ internal object ResourceLoader {
 
       // 3. It is verified and, if it is still null, an IllegalStateException is thrown with the message:
       return checkNotNull(resource) { "${Strings.ERROR_RESOURCE_NOT_FOUND.text}$path" }
+
+      
    }
 }
