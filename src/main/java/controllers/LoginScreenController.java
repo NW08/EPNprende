@@ -126,6 +126,7 @@ public class LoginScreenController implements ViewLifecycle {
          lbl_message.setText(Strings.ERROR_PASSWORD_INCORRECT.getText());
          return false;
       }
+      
       return true;
    }
 

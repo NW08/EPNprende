@@ -1,4 +1,4 @@
-package main.kotlin.firebase
+package main.kotlin.database.firebase
 
 internal class RegisterData(private val name: String, private val email: String, private val password: String) {
 

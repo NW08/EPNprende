@@ -12,7 +12,7 @@ import javafx.scene.shape.SVGPath;
 import javafx.stage.Stage;
 import main.java.interfaces.ViewLifecycle;
 import main.java.utils.Strings;
-import main.kotlin.firebase.RegisterData;
+import main.kotlin.database.firebase.RegisterData;
 import main.kotlin.models.sign.CheckEmailFormat;
 import main.kotlin.models.sign.CheckNameFormat;
 import main.kotlin.models.sign.CheckPassword;
