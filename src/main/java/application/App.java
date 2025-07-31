@@ -41,6 +41,6 @@ public class App extends Application {
 
       // Finalmente, se muestra la ventana con la escena cargada en ella.
       stage.show();
-      
+
    }
 }

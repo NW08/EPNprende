@@ -70,7 +70,7 @@ public enum ScreenManager {
          Object controller = loader.getController();
          return new ViewHolder(root, controller);
       } catch (IOException ex) {
-         throw new RuntimeException("Error cargando FXML: " + path, ex);
+         throw new RuntimeException(Strings.ERROR_FXML_NOT_FOUND.getText() + path, ex);
       }
    }
 
