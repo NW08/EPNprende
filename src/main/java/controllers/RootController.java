@@ -14,20 +14,20 @@ public class RootController {
    // Métodos delegados
    public static void showLogin(Stage stage) {
       ScreenManager.show(Paths.LOGIN_SCREEN.getPath());
-      stage.setWidth(800);
-      stage.setHeight(800);
+      stage.setWidth(700);
+      stage.setHeight(700);
    }
 
    static void showSign(Stage stage) {
       ScreenManager.show(Paths.SIGN_SCREEN.getPath());
-      stage.setWidth(800);
-      stage.setHeight(800);
+      stage.setWidth(700);
+      stage.setHeight(700);
    }
 
    static void showDashboard(Stage stage) {
       ScreenManager.show(Paths.DASHBOARD_SCREEN.getPath());
-      stage.setWidth(1643);
-      stage.setHeight(924);
+      stage.setWidth(1280);
+      stage.setHeight(780);
       stage.centerOnScreen();
    }
 

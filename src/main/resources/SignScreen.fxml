@@ -12,8 +12,8 @@
            maxWidth="-Infinity"
            minHeight="-Infinity"
            minWidth="-Infinity"
-           prefHeight="800.0"
-           prefWidth="800.0"
+           prefHeight="700.0"
+           prefWidth="700.0"
            xmlns="http://javafx.com/javafx/24.0.1"
            fx:controller="main.java.controllers.SignScreenController">
 
@@ -244,7 +244,7 @@
                        layoutY="431.0"
                        onKeyPressed="#onKeyPressed"
                        promptText="Confirm Password"
-                       translateX="201.0"
+                       translateX="150.0"
                        GridPane.halignment="LEFT"
                        GridPane.rowIndex="7"
                        GridPane.valignment="CENTER">

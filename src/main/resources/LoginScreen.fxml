@@ -11,8 +11,8 @@
            maxWidth="-Infinity"
            minHeight="-Infinity"
            minWidth="-Infinity"
-           prefHeight="800.0"
-           prefWidth="800.0"
+           prefHeight="700.0"
+           prefWidth="700.0"
            xmlns="http://javafx.com/javafx/24.0.1"
            fx:controller="main.java.controllers.LoginScreenController">
 
