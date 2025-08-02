@@ -7,6 +7,7 @@ public enum Strings {
 
    // ─── Errores de carga y configuración ─────────────────────────
    ERROR_RESOURCE_NOT_FOUND("Recurso no encontrado en: "),
+   ERROR_KEY_FILE_NOT_FOUND("Archivo de claves no encontrado en: "),
    ERROR_FXML_NOT_FOUND("Error: archivo FXML no encontrado en: "),
    ERROR_SCREEN_MANAGER_NOT_INITIALIZED("ScreenManager no ha sido inicializado. Llama primero a init(root)!"),
 

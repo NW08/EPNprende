@@ -12,7 +12,6 @@ import javafx.scene.shape.SVGPath;
 import javafx.stage.Stage;
 import main.java.interfaces.ViewLifecycle;
 import main.java.utils.Strings;
-import main.kotlin.database.firebase.RegisterData;
 import main.kotlin.models.sign.CheckEmailFormat;
 import main.kotlin.models.sign.CheckNameFormat;
 import main.kotlin.models.sign.CheckPassword;
@@ -142,8 +141,6 @@ public class SignScreenController implements ViewLifecycle {
       String email = txt_field_email.getText();
       String password = txt_view_password.getText();
 
-      RegisterData registerData = new RegisterData(name, email, password);
-      System.out.println(registerData);
 
       Stage stage = (Stage) signPane.getScene().getWindow();
       RootController.showDashboard(stage);

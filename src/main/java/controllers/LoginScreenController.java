@@ -126,7 +126,7 @@ public class LoginScreenController implements ViewLifecycle {
          lbl_message.setText(Strings.ERROR_PASSWORD_INCORRECT.getText());
          return false;
       }
-      
+
       return true;
    }
 
@@ -139,7 +139,7 @@ public class LoginScreenController implements ViewLifecycle {
          return false;
       }
 
-      boolean isEmailVerified = CheckDatabase.INSTANCE.checkEmailInDataBase$EPNprende(email);
+      boolean isEmailVerified = CheckDatabase.INSTANCE.checkExistingUser$EPNprende(email);
       svg_correct_email.setVisible(isEmailVerified);
       svg_incorrect_email.setVisible(!isEmailVerified);
 
@@ -147,7 +147,9 @@ public class LoginScreenController implements ViewLifecycle {
    }
 
    private boolean getVerifiedCredential() {
+      String email = txt_field_email.getText();
       String password = pass_field.getText();
-      return CheckDatabase.INSTANCE.checkPasswordInDataBase$EPNprende(password);
+      
+      return false;
    }
 }

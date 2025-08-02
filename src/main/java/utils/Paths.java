@@ -13,7 +13,10 @@ public enum Paths {
    SIGN_SCREEN("/main/resources/SignScreen.fxml"),
 
    // ─── Interfaz de usuario ────────────────────────────────────
-   DASHBOARD_SCREEN("/main/resources/DashboardScreen.fxml");
+   DASHBOARD_SCREEN("/main/resources/DashboardScreen.fxml"),
+
+   // ─── Firebase ──────────────────────────────────────
+   KEY_FILE("main/serviceAccountKey.json");
 
    private final String path;
 

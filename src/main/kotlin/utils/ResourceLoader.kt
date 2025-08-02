@@ -1,6 +1,9 @@
 package main.kotlin.utils
 
+import main.java.utils.Paths
 import main.java.utils.Strings
+import java.io.FileNotFoundException
+import java.io.InputStream
 import java.net.URL
 
 internal object ResourceLoader {
@@ -21,5 +24,11 @@ internal object ResourceLoader {
 
       // 3. It is verified and, if it is still null, an IllegalStateException is thrown with the message:
       return checkNotNull(resource) { "${Strings.ERROR_RESOURCE_NOT_FOUND.text}$path" }
+   }
+
+   internal fun loadServiceAccountStream(): InputStream {
+      return this::class.java.classLoader
+         .getResourceAsStream(Paths.KEY_FILE.path)
+         ?: throw FileNotFoundException(Strings.ERROR_KEY_FILE_NOT_FOUND.text + Paths.KEY_FILE.path)
    }
 }

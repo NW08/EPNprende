@@ -7,6 +7,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import main.java.controllers.RootController;
 import main.java.utils.Paths;
+import main.kotlin.database.firebase.StartConnection;
 import main.kotlin.utils.ResourceLoader;
 
 import java.io.IOException;
@@ -20,6 +21,9 @@ public class App extends Application {
 
    @Override
    public void start(Stage stage) throws IOException {
+
+      // Se inicia Firebase
+      StartConnection.INSTANCE.init$EPNprende();
 
       // Creación de la interfaz base desde el FXML.
       FXMLLoader loader = new FXMLLoader(ResourceLoader.INSTANCE.getResource$EPNprende(Paths.LAUNCHER.getPath()));
@@ -38,6 +42,7 @@ public class App extends Application {
 
       // Se invoca una función que centra la ventana a mostrarse.
       stage.centerOnScreen();
+
 
       // Finalmente, se muestra la ventana con la escena cargada en ella.
       stage.show();

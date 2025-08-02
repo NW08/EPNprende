@@ -1,11 +1,14 @@
 package main.kotlin.models.login
 
-internal object CheckDatabase {
-   internal fun checkEmailInDataBase(email: String): Boolean {
-      return email == "eduardo.ganchala@epn.edu.ec"
-   }
+import main.kotlin.database.firebase.StartServices.auth
 
-   internal fun checkPasswordInDataBase(password: String): Boolean {
-      return password == "Hola@12345"
+internal object CheckDatabase {
+   internal fun checkExistingUser(email: String): Boolean {
+      try {
+         auth.getUserByEmail(email)
+         return false
+      } catch (_: Exception) {
+         return true
+      }
    }
 }
