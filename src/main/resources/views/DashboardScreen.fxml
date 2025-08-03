@@ -40,41 +40,39 @@
                         <RowConstraints maxHeight="133.0" minHeight="0.0" prefHeight="133.0" vgrow="SOMETIMES"/>
                         <RowConstraints maxHeight="173.0" minHeight="10.0" prefHeight="54.0" vgrow="SOMETIMES"/>
                     </rowConstraints>
-                    <children>
-                        <Button mnemonicParsing="false" styleClass="current_button" text="PRODUCTOS" GridPane.columnIndex="1"
-                                GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                            <graphic>
-                                <SVGPath
-                                        content="M20.5 0L41 11.8357V35.507L20.5 47.3427L0 35.507V11.8357L20.5 0ZM13.6666 22.0928L13.6667 38.1374L18.2222 40.7677V24.723L13.6666 22.0928ZM4.55556 16.8328V32.8769L9.11108 35.5072V19.4628L4.55556 16.8328ZM29.4678 10.4378L16.0597 18.2146L20.5 20.7782L33.9389 13.0192L29.4678 10.4378ZM20.5 5.2603L7.06111 13.0192L11.5094 15.5874L24.9175 7.81071L20.5 5.2603Z"
-                                        fill="WHITE" scaleX="0.7" scaleY="0.7"/>
-                            </graphic>
-                            <font>
-                                <Font name="JejuMyeongjo" size="12.0"/>
-                            </font>
-                        </Button>
-                        <Button mnemonicParsing="false" text="CATEGORÍAS" GridPane.columnIndex="1" GridPane.halignment="CENTER"
-                                GridPane.rowIndex="1" GridPane.valignment="CENTER">
-                            <graphic>
-                                <SVGPath
-                                        content="M40 32.8571H16.0887V35.7143H40V32.8571ZM4.42358 34.2857L0.0170792 37.9714L2.42529 40L9.25708 34.2857L2.42529 28.5714L0 30.5857L4.42358 34.2857ZM40 18.5714H16.0887V21.4286H40V18.5714ZM4.42358 20L0.0170792 23.6857L2.42529 25.7143L9.25708 20L2.42529 14.2857L0 16.3L4.42358 20ZM40 4.28571H16.0887V7.14286H40V4.28571ZM4.42358 5.71429L0.0170792 9.4L2.42529 11.4286L9.25708 5.71429L2.42529 0L0 2.01429L4.42358 5.71429Z"
-                                        fill="WHITE" scaleX="0.4" scaleY="0.4"/>
-                            </graphic>
-                            <styleClass>
-                                <String fx:value="another_button"/>
-                                <String fx:value="current_button"/>
-                            </styleClass>
-                        </Button>
-                        <Button mnemonicParsing="false" text="OFERTAS" GridPane.columnIndex="1" GridPane.halignment="CENTER"
-                                GridPane.rowIndex="2" GridPane.valignment="CENTER">
-                            <graphic>
-                                <SVGPath fill="WHITE" scaleX="0.4" scaleY="0.4"/>
-                            </graphic>
-                            <styleClass>
-                                <String fx:value="another_button"/>
-                                <String fx:value="current_button"/>
-                            </styleClass>
-                        </Button>
-                    </children>
+                    <Button mnemonicParsing="false" styleClass="current_button" text="PRODUCTOS" GridPane.columnIndex="1"
+                            GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <graphic>
+                            <SVGPath
+                                    content="M20.5 0L41 11.8357V35.507L20.5 47.3427L0 35.507V11.8357L20.5 0ZM13.6666 22.0928L13.6667 38.1374L18.2222 40.7677V24.723L13.6666 22.0928ZM4.55556 16.8328V32.8769L9.11108 35.5072V19.4628L4.55556 16.8328ZM29.4678 10.4378L16.0597 18.2146L20.5 20.7782L33.9389 13.0192L29.4678 10.4378ZM20.5 5.2603L7.06111 13.0192L11.5094 15.5874L24.9175 7.81071L20.5 5.2603Z"
+                                    fill="WHITE" scaleX="0.7" scaleY="0.7"/>
+                        </graphic>
+                        <font>
+                            <Font name="JejuMyeongjo" size="12.0"/>
+                        </font>
+                    </Button>
+                    <Button mnemonicParsing="false" text="CATEGORÍAS" GridPane.columnIndex="1" GridPane.halignment="CENTER"
+                            GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                        <graphic>
+                            <SVGPath
+                                    content="M40 32.8571H16.0887V35.7143H40V32.8571ZM4.42358 34.2857L0.0170792 37.9714L2.42529 40L9.25708 34.2857L2.42529 28.5714L0 30.5857L4.42358 34.2857ZM40 18.5714H16.0887V21.4286H40V18.5714ZM4.42358 20L0.0170792 23.6857L2.42529 25.7143L9.25708 20L2.42529 14.2857L0 16.3L4.42358 20ZM40 4.28571H16.0887V7.14286H40V4.28571ZM4.42358 5.71429L0.0170792 9.4L2.42529 11.4286L9.25708 5.71429L2.42529 0L0 2.01429L4.42358 5.71429Z"
+                                    fill="WHITE" scaleX="0.4" scaleY="0.4"/>
+                        </graphic>
+                        <styleClass>
+                            <String fx:value="another_button"/>
+                            <String fx:value="current_button"/>
+                        </styleClass>
+                    </Button>
+                    <Button mnemonicParsing="false" text="OFERTAS" GridPane.columnIndex="1" GridPane.halignment="CENTER"
+                            GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                        <graphic>
+                            <SVGPath fill="WHITE" scaleX="0.4" scaleY="0.4"/>
+                        </graphic>
+                        <styleClass>
+                            <String fx:value="another_button"/>
+                            <String fx:value="current_button"/>
+                        </styleClass>
+                    </Button>
                 </GridPane>
             </VBox>
         </left>
