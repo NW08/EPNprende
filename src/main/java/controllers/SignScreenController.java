@@ -15,6 +15,7 @@ import main.java.utils.Strings;
 import main.kotlin.models.sign.CheckEmailFormat;
 import main.kotlin.models.sign.CheckNameFormat;
 import main.kotlin.models.sign.CheckPassword;
+import main.kotlin.models.sign.CreateNewUser;
 
 public class SignScreenController implements ViewLifecycle {
 
@@ -141,7 +142,7 @@ public class SignScreenController implements ViewLifecycle {
       String email = txt_field_email.getText();
       String password = txt_view_password.getText();
 
-
+      CreateNewUser.INSTANCE.createNewUser$EPNprende(name, email, password);
       Stage stage = (Stage) signPane.getScene().getWindow();
       RootController.showDashboard(stage);
    }

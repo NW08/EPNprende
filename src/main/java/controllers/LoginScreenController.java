@@ -1,7 +1,9 @@
 package main.java.controllers;
 
+import javafx.animation.PauseTransition;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -10,13 +12,21 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.SVGPath;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import main.java.interfaces.ViewLifecycle;
 import main.java.utils.Strings;
+import main.kotlin.database.firebase.AuthResult;
 import main.kotlin.models.login.CheckDatabase;
+import main.kotlin.models.login.LoginAction;
 
 public class LoginScreenController implements ViewLifecycle {
 
+   // Aquí almacenamos el último estado de la verificación:
+   private final BooleanProperty emailVerified = new SimpleBooleanProperty(false);
+
    private final BooleanProperty passwordVisible = new SimpleBooleanProperty(false);
+
+   private PauseTransition pause;
 
    @FXML
    private Button btn_hide_password;
@@ -49,9 +59,11 @@ public class LoginScreenController implements ViewLifecycle {
    // 1. Ciclo de Vida
    @FXML
    public void initialize() {
+      pause = new PauseTransition(Duration.millis(300));
+
       txt_field_email.textProperty().addListener((_, _, _) -> {
          lbl_message.setText(Strings.EMPTY_TEXT.getText());
-         getVerifiedEmail();
+         pause.playFromStart();
       });
 
       pass_field.textProperty().addListener((_, _, _)
@@ -66,6 +78,8 @@ public class LoginScreenController implements ViewLifecycle {
       pass_field.visibleProperty().bind(passwordVisible.not());
       btn_hide_password.visibleProperty().bind(passwordVisible);
       btn_view_password.visibleProperty().bind(passwordVisible.not());
+
+      pause.setOnFinished(_ -> verifyEmailAsync());
    }
 
    @Override
@@ -117,7 +131,7 @@ public class LoginScreenController implements ViewLifecycle {
          return false;
       }
 
-      if (!getVerifiedEmail()) {
+      if (!emailVerified.get()) {
          lbl_message.setText(Strings.ERROR_EMAIL_INCORRECT.getText());
          return false;
       }
@@ -130,26 +144,46 @@ public class LoginScreenController implements ViewLifecycle {
       return true;
    }
 
-   private boolean getVerifiedEmail() {
+   private void verifyEmailAsync() {
       String email = txt_field_email.getText();
-
       if (email.isEmpty()) {
+         emailVerified.set(false);
          svg_correct_email.setVisible(false);
          svg_incorrect_email.setVisible(false);
-         return false;
+         return;
       }
 
-      boolean isEmailVerified = CheckDatabase.INSTANCE.checkExistingUser$EPNprende(email);
-      svg_correct_email.setVisible(isEmailVerified);
-      svg_incorrect_email.setVisible(!isEmailVerified);
+      Task<Boolean> task = new Task<>() {
+         @Override
+         protected Boolean call() {
+            return CheckDatabase.INSTANCE.checkExistingUser$EPNprende(email);
+         }
+      };
 
-      return isEmailVerified;
+      task.setOnSucceeded(_ -> {
+         boolean exists = task.getValue();
+         emailVerified.set(exists);
+         svg_correct_email.setVisible(exists);
+         svg_incorrect_email.setVisible(!exists);
+      });
+
+      task.setOnFailed(_ -> {
+         emailVerified.set(false);
+         svg_correct_email.setVisible(false);
+         svg_incorrect_email.setVisible(true);
+      });
+
+      // lanza el task en un hilo aparte:
+      Thread th = new Thread(task);
+      th.setDaemon(true);
+      th.start();
    }
 
    private boolean getVerifiedCredential() {
       String email = txt_field_email.getText();
       String password = pass_field.getText();
-      
-      return false;
+
+      AuthResult result = LoginAction.INSTANCE.login$EPNprende(email, password);
+      return result.getSuccess$EPNprende();
    }
 }

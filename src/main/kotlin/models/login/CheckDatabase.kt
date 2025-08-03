@@ -6,9 +6,9 @@ internal object CheckDatabase {
    internal fun checkExistingUser(email: String): Boolean {
       try {
          auth.getUserByEmail(email)
-         return false
-      } catch (_: Exception) {
          return true
+      } catch (_: Exception) {
+         return false
       }
    }
 }

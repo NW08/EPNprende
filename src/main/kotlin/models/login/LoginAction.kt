@@ -6,6 +6,7 @@ import main.kotlin.database.firebase.AuthClient.gson
 import main.kotlin.database.firebase.AuthError
 import main.kotlin.database.firebase.AuthRequest
 import main.kotlin.database.firebase.AuthResponse
+import main.kotlin.database.firebase.AuthResult
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.Request
 import okhttp3.RequestBody
@@ -15,7 +16,7 @@ internal object LoginAction {
 
    private val url: String = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=$API_KEY"
 
-   internal fun login(email: String, password: String): Result<AuthResponse> {
+   internal fun login(email: String, password: String): AuthResult {
       val authRequest = AuthRequest(email, password)
       val json: String = gson.toJson(authRequest)
 
@@ -30,10 +31,10 @@ internal object LoginAction {
          val responseBody: String? = response.body?.string()
          return if (response.isSuccessful && responseBody != null) {
             val authResponse: AuthResponse = gson.fromJson(responseBody, AuthResponse::class.java)
-            Result.success(authResponse)
+            AuthResult(true, authResponse)
          } else {
             val error: AuthError = gson.fromJson(responseBody, AuthError::class.java)
-            Result.failure(Exception(error.error.message))
+            AuthResult(false, null, error.error.message)
          }
       }
    }
