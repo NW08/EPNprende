@@ -326,7 +326,7 @@
     </GridPane>
 
     <stylesheets>
-        <URL value="@css/LoginScreen.css"/>
-        <URL value="@css/SignScreen.css"/>
+        <URL value="@../css/LoginScreen.css"/>
+        <URL value="@../css/SignScreen.css"/>
     </stylesheets>
 </StackPane>

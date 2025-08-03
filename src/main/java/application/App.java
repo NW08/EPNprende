@@ -3,6 +3,7 @@ package main.java.application;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import main.java.controllers.RootController;
@@ -21,7 +22,6 @@ public class App extends Application {
 
    @Override
    public void start(Stage stage) throws IOException {
-
       // Se inicia Firebase
       StartConnection.INSTANCE.init$EPNprende();
 
@@ -40,12 +40,17 @@ public class App extends Application {
       // Mediante el controlador se invoca a la pantalla de login para que esta se muestre en la escena.
       RootController.showLogin(stage);
 
+      // Se establece el ícono de la ventana
+      Image logo = new Image(ResourceLoader.INSTANCE.getResource$EPNprende(Paths.ICON_LOGO.getPath()).openStream());
+      stage.getIcons().add(logo);
+
+      // Se pone el título de la ventana
+      stage.setTitle("EPNprende");
+
       // Se invoca una función que centra la ventana a mostrarse.
       stage.centerOnScreen();
 
-
       // Finalmente, se muestra la ventana con la escena cargada en ella.
       stage.show();
-
    }
 }

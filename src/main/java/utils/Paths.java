@@ -6,17 +6,20 @@ package main.java.utils;
 public enum Paths {
 
    // ─── Pantalla principal ──────────────────────────────────────
-   LAUNCHER("/main/resources/RootScreen.fxml"),
+   LAUNCHER("/main/resources/views/RootScreen.fxml"),
 
    // ─── Autenticación ──────────────────────────────────────────
-   LOGIN_SCREEN("/main/resources/LoginScreen.fxml"),
-   SIGN_SCREEN("/main/resources/SignScreen.fxml"),
+   LOGIN_SCREEN("/main/resources/views/LoginScreen.fxml"),
+   SIGN_SCREEN("/main/resources/views/SignScreen.fxml"),
 
    // ─── Interfaz de usuario ────────────────────────────────────
-   DASHBOARD_SCREEN("/main/resources/DashboardScreen.fxml"),
+   DASHBOARD_SCREEN("/main/resources/views/DashboardScreen.fxml"),
 
    // ─── Firebase ──────────────────────────────────────
-   KEY_FILE("main/serviceAccountKey.json");
+   KEY_FILE("main/serviceAccountKey.json"),
+
+   // ─── Icons ──────────────────────────────────────
+   ICON_LOGO("/main/resources/images/logo.jpg");
 
    private final String path;
 
