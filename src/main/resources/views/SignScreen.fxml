@@ -270,7 +270,7 @@
 
             <styleClass>
                 <String fx:value="confirm_password_button"/>
-                <String fx:value="gradient-button"/>
+                <String fx:value="active-button"/>
             </styleClass>
         </Button>
 

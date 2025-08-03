@@ -26,6 +26,11 @@ public enum Strings {
    ERROR_NAME_EMPTY("Debes ingresar tu nombre"),
    ERROR_NAME_INCORRECT("Verifica el nombre ingresado. Sólo puede contener letras y espacios"),
 
+   // ─── Títulos de Ventanas ───────────────────────────────────────────────────
+   LOGIN_TITLE("Login User"),
+   SIGN_TITLE("Register New User"),
+   DASHBOARD_TITLE("EPNprende Dashboard"),
+
    // ─── Otros ───────────────────────────────────────────────────
    EMPTY_TEXT("");
 

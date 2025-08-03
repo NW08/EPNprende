@@ -71,7 +71,7 @@
 }
 
 /* Clase CSS para un botón con gradiente lineal azul */
-.gradient-button {
+.active-button {
     -fx-background-color: linear-gradient(to right, #A0DAFF 0%, #1977AD 100%); /* Gradiente de azul claro a azul oscuro */
     -fx-text-fill: #FFFFFF; /* Color del texto del botón (para que contraste bien) */
     -fx-font-family: "JejuMyeongjo"; /* Fuente consistente con tus otros elementos */
@@ -85,19 +85,19 @@
 }
 
 /* Estilo para cuando el ratón está sobre el botón (hover) */
-.gradient-button:hover {
+.active-button:hover {
     -fx-background-color: linear-gradient(to right, #1977AD 0%, #A0DAFF 100%);
     -fx-cursor: hand; /* Cambiar el cursor a una mano */
 }
 
 /* Estilo para cuando el botón está siendo presionado (clic) */
-.gradient-button:pressed {
+.active-button:pressed {
     -fx-background-color: #008CBA; /* Un azul sólido o más oscuro al presionar para dar retroalimentación */
     -fx-padding: 11px 19px 9px 21px; /* Ligeramente más "hundido" visualmente */
 }
 
 /* Estilo para cuando el botón está deshabilitado */
-.gradient-button:disabled {
+.active-button:disabled {
     -fx-background-color: #CCCCCC; /* Un gris claro */
     -fx-text-fill: #666666; /* Texto gris más oscuro */
     -fx-opacity: 0.7; /* Ligeramente transparente */

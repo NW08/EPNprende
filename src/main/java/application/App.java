@@ -44,9 +44,6 @@ public class App extends Application {
       Image logo = new Image(ResourceLoader.INSTANCE.getResource$EPNprende(Paths.ICON_LOGO.getPath()).openStream());
       stage.getIcons().add(logo);
 
-      // Se pone el título de la ventana
-      stage.setTitle("EPNprende");
-
       // Se invoca una función que centra la ventana a mostrarse.
       stage.centerOnScreen();
 

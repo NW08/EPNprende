@@ -285,7 +285,7 @@
         <Button
                 mnemonicParsing="false"
                 onAction="#loginAction"
-                styleClass="gradient-button"
+                styleClass="active-button"
                 GridPane.halignment="CENTER"
                 GridPane.rowIndex="6"
                 GridPane.valignment="CENTER"
