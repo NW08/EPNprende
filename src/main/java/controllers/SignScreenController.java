@@ -21,6 +21,8 @@ import main.kotlin.models.sign.CreateNewUser;
 
 public class SignScreenController implements ViewLifecycle {
 
+   private static SignScreenController instance;
+
    private final BooleanProperty passwordVisible = new SimpleBooleanProperty(false);
 
    @FXML
@@ -59,7 +61,6 @@ public class SignScreenController implements ViewLifecycle {
    @FXML
    private TextField txt_view_password;
 
-
    // 1. Métodos Estáticos
    private static byte checkPassword(String password, String password_confirmation) {
       boolean isFormatPasswordCorrect = CheckPassword.INSTANCE.checkPasswordFormat$EPNprende(password);
@@ -72,10 +73,16 @@ public class SignScreenController implements ViewLifecycle {
       else return 0;
    }
 
+   public static int getStringID() {
+      if (instance == null) throw new IllegalStateException(Strings.ERROR_CONTROLLER_NOT_INITIALIZED.getText());
+      return instance.signAction();
+   }
 
    // 2. Ciclo de vida
    @FXML
    public void initialize() {
+      instance = this;
+
       txt_field_email.textProperty().addListener((_, _, _) -> {
          lbl_message_login.setText(Strings.EMPTY_TEXT.getText());
          lbl_message_password.setText(Strings.EMPTY_TEXT.getText());
@@ -118,7 +125,6 @@ public class SignScreenController implements ViewLifecycle {
       passwordVisible.set(false);
    }
 
-
    // 3. Event Handlers
    @FXML
    void onKeyPressed(KeyEvent event) {
@@ -137,18 +143,22 @@ public class SignScreenController implements ViewLifecycle {
    }
 
    @FXML
-   void signAction() {
-      if (!validateFields()) return;
+   public int signAction() {
+      if (!validateFields()) return 1;
 
       String name = txt_field_name.getText();
       String email = txt_field_email.getText();
       String password = txt_view_password.getText();
 
       CreateNewUser.INSTANCE.createNewUser$EPNprende(name, email, password);
-      Stage stage = (Stage) signPane.getScene().getWindow();
-      RootController.showDashboard(stage);
-   }
 
+      Integer id = CreateNewUser.INSTANCE.getUserID$EPNprende();
+      if (id != null) {
+         Stage stage = (Stage) signPane.getScene().getWindow();
+         RootController.showDashboard(stage);
+         return id;
+      } else return 0;
+   }
 
    // 4. Validaciones
    private boolean validateFields() {

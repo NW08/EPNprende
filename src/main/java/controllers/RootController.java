@@ -29,7 +29,7 @@ public class RootController {
       stage.centerOnScreen();
    }
 
-   public static void showDashboard(Stage stage) {
+   static void showDashboard(Stage stage) {
       ScreenManager.show(Paths.DASHBOARD_SCREEN.getPath());
       stage.setTitle(Strings.DASHBOARD_TITLE.getText());
       stage.setWidth(1300);

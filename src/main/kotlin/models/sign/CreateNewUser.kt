@@ -1,9 +1,11 @@
 package main.kotlin.models.sign
 
+import main.java.utils.Strings
 import main.kotlin.database.firebase.AuthClient.SECRETS_KEY
 import main.kotlin.database.firebase.AuthClient.client
 import main.kotlin.database.firebase.AuthClient.gson
 import main.kotlin.database.firebase.StartServices.db
+import main.kotlin.database.postgres.InitConnection
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
@@ -11,6 +13,8 @@ import okhttp3.RequestBody.Companion.toRequestBody
 internal object CreateNewUser {
 
    private val url: String = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=$SECRETS_KEY"
+
+   private var id: Int? = null
 
    /**
     * Registra un usuario en Firebase Auth usando email/password.
@@ -60,10 +64,29 @@ internal object CreateNewUser {
             "password" to password
          )
          db.collection("users").document(email).set(data).get()
-         true
+         val userId = addUserInPostgres(email)
+         if (userId != null) {
+            this.id = userId
+            true
+         } else false
       } catch (e: Exception) {
          e.printStackTrace()
          false
       }
+   }
+
+   private fun addUserInPostgres(id: String): Int? {
+      InitConnection.connect().use { conn ->
+         conn.prepareStatement(Strings.UPDATE_NEW_USER_QUERY.text).use { stmt ->
+            stmt.setBytes(1, id.toByteArray())
+            stmt.executeQuery().use { rs ->
+               return if (rs.next()) rs.getInt("user_id") else null
+            }
+         }
+      }
+   }
+
+   internal fun getUserID(): Int? {
+      return this.id
    }
 }
