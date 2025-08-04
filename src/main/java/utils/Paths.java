@@ -14,6 +14,9 @@ public enum Paths {
 
    // ─── Interfaz de usuario ────────────────────────────────────
    DASHBOARD_SCREEN("/main/resources/views/DashboardScreen.fxml"),
+   CATEGORIES_SCREEN("/main/resources/views/CategoriesScreen.fxml"),
+   FAVORITES_SCREEN("/main/resources/views/FavoritesScreen.fxml"),
+   OFFERS_SCREEN("/main/resources/views/OffersScreen.fxml"),
 
    // ─── Firebase ──────────────────────────────────────
    KEY_FILE("main/serviceAccountKey.json"),

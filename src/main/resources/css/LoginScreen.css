@@ -105,11 +105,11 @@
 
 
 /* Dar estilo al label */
-.label_error {
+.label_nickname {
     -fx-font-size: 20px;
 }
 
-.label_error .text {
+.label_nickname .text {
     -fx-fill: FF0000; /* Color interior de las letras */
     -fx-stroke: FF0000; /* Color del contorno (borde de las letras) */
     -fx-stroke-width: 1px; /* Grosor del contorno */

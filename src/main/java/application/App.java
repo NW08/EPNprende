@@ -38,7 +38,7 @@ public class App extends Application {
       stage.setScene(scene);
 
       // Mediante el controlador se invoca a la pantalla de login para que esta se muestre en la escena.
-      RootController.showLogin(stage);
+      RootController.showDashboard(stage);
 
       // Se establece el ícono de la ventana
       Image logo = new Image(ResourceLoader.INSTANCE.getResource$EPNprende(Paths.ICON_LOGO.getPath()).openStream());
