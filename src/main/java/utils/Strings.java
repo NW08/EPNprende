@@ -10,6 +10,7 @@ public enum Strings {
    ERROR_KEY_FILE_NOT_FOUND("Archivo de claves no encontrado en: "),
    ERROR_FXML_NOT_FOUND("Error: archivo FXML no encontrado en: "),
    ERROR_SCREEN_MANAGER_NOT_INITIALIZED("ScreenManager no ha sido inicializado. Llama primero a init(root)!"),
+   ERROR_CONTROLLER_NOT_INITIALIZED("El controlador no ha sido inicializado. Verifica tu código!"),
 
    // ─── Validación de correo ────────────────────────────────────
    ERROR_EMAIL_EMPTY("Debes ingresar tu email"),
@@ -33,6 +34,9 @@ public enum Strings {
    CATEGORIES_TITLE("EPNprende Categorías"),
    FAVORITES_TITLE("EPNprende Favoritos"),
    OFFERS_TITLE("EPNprende Ofertas"),
+
+   // ─── PostgreSQL Queries ───────────────────────────────────────────────────
+   UPDATE_NEW_USER_QUERY("INSERT INTO users (user_firebase) VALUES (?) RETURNING user_id"),
 
    // ─── Otros ───────────────────────────────────────────────────
    EMPTY_TEXT("");
