@@ -1,6 +1,6 @@
 package main.kotlin.models.login
 
-import main.kotlin.database.firebase.AuthClient.API_KEY
+import main.kotlin.database.firebase.AuthClient.SECRETS_KEY
 import main.kotlin.database.firebase.AuthClient.client
 import main.kotlin.database.firebase.AuthClient.gson
 import main.kotlin.database.firebase.AuthError
@@ -14,7 +14,7 @@ import okhttp3.RequestBody.Companion.toRequestBody
 
 internal object LoginAction {
 
-   private val url: String = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=$API_KEY"
+   private val url: String = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=$SECRETS_KEY"
 
    internal fun login(email: String, password: String): AuthResult {
       val authRequest = AuthRequest(email, password)
