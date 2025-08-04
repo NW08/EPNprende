@@ -7,6 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.SVGPath;
 import javafx.stage.Stage;
@@ -119,8 +121,8 @@ public class SignScreenController implements ViewLifecycle {
 
    // 3. Event Handlers
    @FXML
-   void onKeyPressed(javafx.scene.input.KeyEvent event) {
-      if (event.getCode() == javafx.scene.input.KeyCode.ENTER) signAction();
+   void onKeyPressed(KeyEvent event) {
+      if (event.getCode() == KeyCode.ENTER) signAction();
    }
 
    @FXML

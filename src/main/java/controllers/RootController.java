@@ -29,11 +29,35 @@ public class RootController {
       stage.centerOnScreen();
    }
 
-   static void showDashboard(Stage stage) {
+   public static void showDashboard(Stage stage) {
       ScreenManager.show(Paths.DASHBOARD_SCREEN.getPath());
       stage.setTitle(Strings.DASHBOARD_TITLE.getText());
-      stage.setWidth(1280);
-      stage.setHeight(780);
+      stage.setWidth(1300);
+      stage.setHeight(800);
+      stage.centerOnScreen();
+   }
+
+   static void showCategories(Stage stage) {
+      ScreenManager.show(Paths.CATEGORIES_SCREEN.getPath());
+      stage.setTitle(Strings.CATEGORIES_TITLE.getText());
+      stage.setWidth(1300);
+      stage.setHeight(800);
+      stage.centerOnScreen();
+   }
+
+   static void showFavorites(Stage stage) {
+      ScreenManager.show(Paths.FAVORITES_SCREEN.getPath());
+      stage.setTitle(Strings.FAVORITES_TITLE.getText());
+      stage.setWidth(1300);
+      stage.setHeight(800);
+      stage.centerOnScreen();
+   }
+
+   static void showOffers(Stage stage) {
+      ScreenManager.show(Paths.OFFERS_SCREEN.getPath());
+      stage.setTitle(Strings.OFFERS_TITLE.getText());
+      stage.setWidth(1300);
+      stage.setHeight(800);
       stage.centerOnScreen();
    }
 

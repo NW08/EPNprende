@@ -7,10 +7,10 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.Font?>
 <?import java.lang.*?>
-<StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="dashboardPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+<StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="favoritesPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
            minWidth="-Infinity"
            prefHeight="780.0" prefWidth="1280.0" stylesheets="@../css/DashboardScreen.css"
-           xmlns="http://javafx.com/javafx/24.0.1" fx:controller="main.java.controllers.DashboardScreenController">
+           xmlns="http://javafx.com/javafx/24.0.1" fx:controller="main.java.controllers.FavoritesScreenController">
     <BorderPane>
         <left>
             <VBox prefHeight="780.0" prefWidth="275.0" styleClass="hamburger_menu" BorderPane.alignment="CENTER">
@@ -43,7 +43,7 @@
                         <RowConstraints maxHeight="173.0" minHeight="10.0" prefHeight="107.0" vgrow="SOMETIMES"/>
                         <RowConstraints maxHeight="173.0" minHeight="10.0" prefHeight="123.0" vgrow="SOMETIMES"/>
                     </rowConstraints>
-                    <Button mnemonicParsing="false" styleClass="current_button" text="PRODUCTOS" GridPane.columnIndex="1"
+                    <Button mnemonicParsing="false" onAction="#changeProductsAction" text="PRODUCTOS" GridPane.columnIndex="1"
                             GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                         <graphic>
                             <SVGPath
@@ -53,6 +53,10 @@
                         <font>
                             <Font name="JejuMyeongjo" size="12.0"/>
                         </font>
+                        <styleClass>
+                            <String fx:value="current_button"/>
+                            <String fx:value="another_button"/>
+                        </styleClass>
                     </Button>
                     <Button mnemonicParsing="false" onAction="#changeCategoriesAction" text="CATEGORÍAS" GridPane.columnIndex="1"
                             GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
@@ -78,17 +82,13 @@
                             <String fx:value="current_button"/>
                         </styleClass>
                     </Button>
-                    <Button mnemonicParsing="false" onAction="#changeFavoritesAction" text=" FAVORITOS" GridPane.columnIndex="1"
+                    <Button mnemonicParsing="false" styleClass="current_button" text=" FAVORITOS" GridPane.columnIndex="1"
                             GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                         <graphic>
                             <SVGPath
                                     content="M11.25 0H8.75001L6.89115 5.72101L0.875692 5.72102L0.103149 8.09866L4.96976 11.6344L3.11091 17.3554L5.13346 18.8249L10 15.2891L14.8666 18.8249L16.8891 17.3554L15.0302 11.6344L19.8969 8.09865L19.1242 5.72101H13.1089L11.25 0Z"
                                     fill="WHITE" scaleZ="0.0"/>
                         </graphic>
-                        <styleClass>
-                            <String fx:value="another_button"/>
-                            <String fx:value="current_button"/>
-                        </styleClass>
                     </Button>
                 </GridPane>
                 <Button mnemonicParsing="false" onAction="#logoutAction" styleClass="exit_button" translateX="100.0" translateY="35.0">
@@ -197,15 +197,15 @@
                                 </Label>
                             </HBox>
                             <Button mnemonicParsing="false" prefWidth="56.0" scaleX="1.1" scaleY="1.1" styleClass="exit_button"
-                                    translateY="2.0" visible="false" GridPane.columnIndex="2" GridPane.halignment="LEFT"
-                                    GridPane.valignment="CENTER">
+                                    translateY="2.0" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
                                 <graphic>
                                     <SVGPath
                                             content="M17.3666 3.84166C16.941 3.41583 16.4356 3.07803 15.8794 2.84757C15.3232 2.6171 14.727 2.49847 14.1249 2.49847C13.5229 2.49847 12.9267 2.6171 12.3705 2.84757C11.8143 3.07803 11.3089 3.41583 10.8833 3.84166L9.99994 4.725L9.1166 3.84166C8.25686 2.98192 7.0908 2.49892 5.87494 2.49892C4.65908 2.49892 3.49301 2.98192 2.63327 3.84166C1.77353 4.70141 1.29053 5.86747 1.29053 7.08333C1.29053 8.29919 1.77353 9.46525 2.63327 10.325L9.99994 17.6917L17.3666 10.325C17.7924 9.89937 18.1302 9.39401 18.3607 8.83779C18.5912 8.28158 18.7098 7.6854 18.7098 7.08333C18.7098 6.48126 18.5912 5.88508 18.3607 5.32887C18.1302 4.77265 17.7924 4.26729 17.3666 3.84166Z"
                                             fill="WHITE" scaleX="1.5" scaleY="1.5"/>
                                 </graphic>
                             </Button>
-                            <Button mnemonicParsing="false" prefWidth="56.0" styleClass="exit_button" GridPane.columnIndex="2">
+                            <Button mnemonicParsing="false" prefWidth="56.0" styleClass="exit_button" visible="false"
+                                    GridPane.columnIndex="2">
                                 <graphic>
                                     <SVGPath
                                             content="M9.99984 4.58378L9.5495 5.0172C9.66734 5.13962 9.82992 5.20878 9.99984 5.20878C10.1698 5.20878 10.3323 5.13962 10.4502 5.0172L9.99984 4.58378ZM5.83368 13.684C5.56715 13.4647 5.17328 13.5029 4.95393 13.7694C4.73458 14.0359 4.77282 14.4298 5.03934 14.6492L5.83368 13.684ZM1.9515 11.1762C2.11712 11.479 2.4969 11.5903 2.79974 11.4246C3.10259 11.2589 3.21381 10.8792 3.04818 10.5763L1.9515 11.1762ZM2.2915 7.61418C2.2915 5.82178 3.30431 4.31869 4.6868 3.68675C6.02989 3.07283 7.83455 3.23541 9.5495 5.0172L10.4502 4.15037C8.41525 2.03619 6.05324 1.68775 4.16714 2.54989C2.32043 3.39403 1.0415 5.35412 1.0415 7.61418H2.2915ZM7.08102 16.2498C7.50788 16.5863 7.96612 16.9452 8.4305 17.2165C8.89475 17.4878 9.4245 17.7083 9.99984 17.7083V16.4583C9.74184 16.4583 9.43825 16.3577 9.06117 16.1373C8.68425 15.917 8.29324 15.6138 7.85488 15.2682L7.08102 16.2498ZM12.9187 16.2498C14.1075 15.3126 15.6272 14.2388 16.8193 12.8964C18.0328 11.53 18.9582 9.83543 18.9582 7.61418H17.7082C17.7082 9.44534 16.9588 10.8568 15.8846 12.0664C14.7889 13.3002 13.4078 14.2725 12.1448 15.2682L12.9187 16.2498ZM18.9582 7.61418C18.9582 5.35412 17.6793 3.39403 15.8325 2.54989C13.9464 1.68775 11.5844 2.03619 9.5495 4.15037L10.4502 5.0172C12.1651 3.23541 13.9698 3.07283 15.3128 3.68675C16.6953 4.31869 17.7082 5.82178 17.7082 7.61418H18.9582ZM12.1448 15.2682C11.7064 15.6138 11.3154 15.917 10.9385 16.1373C10.5614 16.3577 10.2578 16.4583 9.99984 16.4583V17.7083C10.5752 17.7083 11.1049 17.4878 11.5692 17.2165C12.0336 16.9452 12.4918 16.5863 12.9187 16.2498L12.1448 15.2682ZM7.85488 15.2682C7.19162 14.7453 6.51758 14.2468 5.83368 13.684L5.03934 14.6492C5.73124 15.2186 6.4621 15.7619 7.08102 16.2498L7.85488 15.2682ZM3.04818 10.5763C2.5805 9.72126 2.2915 8.75268 2.2915 7.61418H1.0415C1.0415 8.97876 1.39146 10.1522 1.9515 11.1762L3.04818 10.5763Z"
@@ -260,15 +260,15 @@
                                 </Label>
                             </HBox>
                             <Button mnemonicParsing="false" prefWidth="56.0" scaleX="1.1" scaleY="1.1" styleClass="exit_button"
-                                    translateY="2.0" visible="false" GridPane.columnIndex="2" GridPane.halignment="LEFT"
-                                    GridPane.valignment="CENTER">
+                                    translateY="2.0" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
                                 <graphic>
                                     <SVGPath
                                             content="M17.3666 3.84166C16.941 3.41583 16.4356 3.07803 15.8794 2.84757C15.3232 2.6171 14.727 2.49847 14.1249 2.49847C13.5229 2.49847 12.9267 2.6171 12.3705 2.84757C11.8143 3.07803 11.3089 3.41583 10.8833 3.84166L9.99994 4.725L9.1166 3.84166C8.25686 2.98192 7.0908 2.49892 5.87494 2.49892C4.65908 2.49892 3.49301 2.98192 2.63327 3.84166C1.77353 4.70141 1.29053 5.86747 1.29053 7.08333C1.29053 8.29919 1.77353 9.46525 2.63327 10.325L9.99994 17.6917L17.3666 10.325C17.7924 9.89937 18.1302 9.39401 18.3607 8.83779C18.5912 8.28158 18.7098 7.6854 18.7098 7.08333C18.7098 6.48126 18.5912 5.88508 18.3607 5.32887C18.1302 4.77265 17.7924 4.26729 17.3666 3.84166Z"
                                             fill="WHITE" scaleX="1.5" scaleY="1.5"/>
                                 </graphic>
                             </Button>
-                            <Button mnemonicParsing="false" prefWidth="56.0" styleClass="exit_button" GridPane.columnIndex="2">
+                            <Button mnemonicParsing="false" prefWidth="56.0" styleClass="exit_button" visible="false"
+                                    GridPane.columnIndex="2">
                                 <graphic>
                                     <SVGPath
                                             content="M9.99984 4.58378L9.5495 5.0172C9.66734 5.13962 9.82992 5.20878 9.99984 5.20878C10.1698 5.20878 10.3323 5.13962 10.4502 5.0172L9.99984 4.58378ZM5.83368 13.684C5.56715 13.4647 5.17328 13.5029 4.95393 13.7694C4.73458 14.0359 4.77282 14.4298 5.03934 14.6492L5.83368 13.684ZM1.9515 11.1762C2.11712 11.479 2.4969 11.5903 2.79974 11.4246C3.10259 11.2589 3.21381 10.8792 3.04818 10.5763L1.9515 11.1762ZM2.2915 7.61418C2.2915 5.82178 3.30431 4.31869 4.6868 3.68675C6.02989 3.07283 7.83455 3.23541 9.5495 5.0172L10.4502 4.15037C8.41525 2.03619 6.05324 1.68775 4.16714 2.54989C2.32043 3.39403 1.0415 5.35412 1.0415 7.61418H2.2915ZM7.08102 16.2498C7.50788 16.5863 7.96612 16.9452 8.4305 17.2165C8.89475 17.4878 9.4245 17.7083 9.99984 17.7083V16.4583C9.74184 16.4583 9.43825 16.3577 9.06117 16.1373C8.68425 15.917 8.29324 15.6138 7.85488 15.2682L7.08102 16.2498ZM12.9187 16.2498C14.1075 15.3126 15.6272 14.2388 16.8193 12.8964C18.0328 11.53 18.9582 9.83543 18.9582 7.61418H17.7082C17.7082 9.44534 16.9588 10.8568 15.8846 12.0664C14.7889 13.3002 13.4078 14.2725 12.1448 15.2682L12.9187 16.2498ZM18.9582 7.61418C18.9582 5.35412 17.6793 3.39403 15.8325 2.54989C13.9464 1.68775 11.5844 2.03619 9.5495 4.15037L10.4502 5.0172C12.1651 3.23541 13.9698 3.07283 15.3128 3.68675C16.6953 4.31869 17.7082 5.82178 17.7082 7.61418H18.9582ZM12.1448 15.2682C11.7064 15.6138 11.3154 15.917 10.9385 16.1373C10.5614 16.3577 10.2578 16.4583 9.99984 16.4583V17.7083C10.5752 17.7083 11.1049 17.4878 11.5692 17.2165C12.0336 16.9452 12.4918 16.5863 12.9187 16.2498L12.1448 15.2682ZM7.85488 15.2682C7.19162 14.7453 6.51758 14.2468 5.83368 13.684L5.03934 14.6492C5.73124 15.2186 6.4621 15.7619 7.08102 16.2498L7.85488 15.2682ZM3.04818 10.5763C2.5805 9.72126 2.2915 8.75268 2.2915 7.61418H1.0415C1.0415 8.97876 1.39146 10.1522 1.9515 11.1762L3.04818 10.5763Z"
@@ -330,7 +330,7 @@
                                             </children>
                                         </HBox>
                                         <Button mnemonicParsing="false" prefWidth="56.0" scaleX="1.1" scaleY="1.1" styleClass="exit_button"
-                                                translateY="2.0" visible="false" GridPane.columnIndex="2" GridPane.halignment="LEFT"
+                                                translateY="2.0" GridPane.columnIndex="2" GridPane.halignment="LEFT"
                                                 GridPane.valignment="CENTER">
                                             <graphic>
                                                 <SVGPath
@@ -338,7 +338,8 @@
                                                         fill="WHITE" scaleX="1.5" scaleY="1.5"/>
                                             </graphic>
                                         </Button>
-                                        <Button mnemonicParsing="false" prefWidth="56.0" styleClass="exit_button" GridPane.columnIndex="2">
+                                        <Button mnemonicParsing="false" prefWidth="56.0" styleClass="exit_button" visible="false"
+                                                GridPane.columnIndex="2">
                                             <graphic>
                                                 <SVGPath
                                                         content="M9.99984 4.58378L9.5495 5.0172C9.66734 5.13962 9.82992 5.20878 9.99984 5.20878C10.1698 5.20878 10.3323 5.13962 10.4502 5.0172L9.99984 4.58378ZM5.83368 13.684C5.56715 13.4647 5.17328 13.5029 4.95393 13.7694C4.73458 14.0359 4.77282 14.4298 5.03934 14.6492L5.83368 13.684ZM1.9515 11.1762C2.11712 11.479 2.4969 11.5903 2.79974 11.4246C3.10259 11.2589 3.21381 10.8792 3.04818 10.5763L1.9515 11.1762ZM2.2915 7.61418C2.2915 5.82178 3.30431 4.31869 4.6868 3.68675C6.02989 3.07283 7.83455 3.23541 9.5495 5.0172L10.4502 4.15037C8.41525 2.03619 6.05324 1.68775 4.16714 2.54989C2.32043 3.39403 1.0415 5.35412 1.0415 7.61418H2.2915ZM7.08102 16.2498C7.50788 16.5863 7.96612 16.9452 8.4305 17.2165C8.89475 17.4878 9.4245 17.7083 9.99984 17.7083V16.4583C9.74184 16.4583 9.43825 16.3577 9.06117 16.1373C8.68425 15.917 8.29324 15.6138 7.85488 15.2682L7.08102 16.2498ZM12.9187 16.2498C14.1075 15.3126 15.6272 14.2388 16.8193 12.8964C18.0328 11.53 18.9582 9.83543 18.9582 7.61418H17.7082C17.7082 9.44534 16.9588 10.8568 15.8846 12.0664C14.7889 13.3002 13.4078 14.2725 12.1448 15.2682L12.9187 16.2498ZM18.9582 7.61418C18.9582 5.35412 17.6793 3.39403 15.8325 2.54989C13.9464 1.68775 11.5844 2.03619 9.5495 4.15037L10.4502 5.0172C12.1651 3.23541 13.9698 3.07283 15.3128 3.68675C16.6953 4.31869 17.7082 5.82178 17.7082 7.61418H18.9582ZM12.1448 15.2682C11.7064 15.6138 11.3154 15.917 10.9385 16.1373C10.5614 16.3577 10.2578 16.4583 9.99984 16.4583V17.7083C10.5752 17.7083 11.1049 17.4878 11.5692 17.2165C12.0336 16.9452 12.4918 16.5863 12.9187 16.2498L12.1448 15.2682ZM7.85488 15.2682C7.19162 14.7453 6.51758 14.2468 5.83368 13.684L5.03934 14.6492C5.73124 15.2186 6.4621 15.7619 7.08102 16.2498L7.85488 15.2682ZM3.04818 10.5763C2.5805 9.72126 2.2915 8.75268 2.2915 7.61418H1.0415C1.0415 8.97876 1.39146 10.1522 1.9515 11.1762L3.04818 10.5763Z"
@@ -403,7 +404,7 @@
                                             </children>
                                         </HBox>
                                         <Button mnemonicParsing="false" prefWidth="56.0" scaleX="1.1" scaleY="1.1" styleClass="exit_button"
-                                                translateY="2.0" visible="false" GridPane.columnIndex="2" GridPane.halignment="LEFT"
+                                                translateY="2.0" GridPane.columnIndex="2" GridPane.halignment="LEFT"
                                                 GridPane.valignment="CENTER">
                                             <graphic>
                                                 <SVGPath
@@ -411,7 +412,8 @@
                                                         fill="WHITE" scaleX="1.5" scaleY="1.5"/>
                                             </graphic>
                                         </Button>
-                                        <Button mnemonicParsing="false" prefWidth="56.0" styleClass="exit_button" GridPane.columnIndex="2">
+                                        <Button mnemonicParsing="false" prefWidth="56.0" styleClass="exit_button" visible="false"
+                                                GridPane.columnIndex="2">
                                             <graphic>
                                                 <SVGPath
                                                         content="M9.99984 4.58378L9.5495 5.0172C9.66734 5.13962 9.82992 5.20878 9.99984 5.20878C10.1698 5.20878 10.3323 5.13962 10.4502 5.0172L9.99984 4.58378ZM5.83368 13.684C5.56715 13.4647 5.17328 13.5029 4.95393 13.7694C4.73458 14.0359 4.77282 14.4298 5.03934 14.6492L5.83368 13.684ZM1.9515 11.1762C2.11712 11.479 2.4969 11.5903 2.79974 11.4246C3.10259 11.2589 3.21381 10.8792 3.04818 10.5763L1.9515 11.1762ZM2.2915 7.61418C2.2915 5.82178 3.30431 4.31869 4.6868 3.68675C6.02989 3.07283 7.83455 3.23541 9.5495 5.0172L10.4502 4.15037C8.41525 2.03619 6.05324 1.68775 4.16714 2.54989C2.32043 3.39403 1.0415 5.35412 1.0415 7.61418H2.2915ZM7.08102 16.2498C7.50788 16.5863 7.96612 16.9452 8.4305 17.2165C8.89475 17.4878 9.4245 17.7083 9.99984 17.7083V16.4583C9.74184 16.4583 9.43825 16.3577 9.06117 16.1373C8.68425 15.917 8.29324 15.6138 7.85488 15.2682L7.08102 16.2498ZM12.9187 16.2498C14.1075 15.3126 15.6272 14.2388 16.8193 12.8964C18.0328 11.53 18.9582 9.83543 18.9582 7.61418H17.7082C17.7082 9.44534 16.9588 10.8568 15.8846 12.0664C14.7889 13.3002 13.4078 14.2725 12.1448 15.2682L12.9187 16.2498ZM18.9582 7.61418C18.9582 5.35412 17.6793 3.39403 15.8325 2.54989C13.9464 1.68775 11.5844 2.03619 9.5495 4.15037L10.4502 5.0172C12.1651 3.23541 13.9698 3.07283 15.3128 3.68675C16.6953 4.31869 17.7082 5.82178 17.7082 7.61418H18.9582ZM12.1448 15.2682C11.7064 15.6138 11.3154 15.917 10.9385 16.1373C10.5614 16.3577 10.2578 16.4583 9.99984 16.4583V17.7083C10.5752 17.7083 11.1049 17.4878 11.5692 17.2165C12.0336 16.9452 12.4918 16.5863 12.9187 16.2498L12.1448 15.2682ZM7.85488 15.2682C7.19162 14.7453 6.51758 14.2468 5.83368 13.684L5.03934 14.6492C5.73124 15.2186 6.4621 15.7619 7.08102 16.2498L7.85488 15.2682ZM3.04818 10.5763C2.5805 9.72126 2.2915 8.75268 2.2915 7.61418H1.0415C1.0415 8.97876 1.39146 10.1522 1.9515 11.1762L3.04818 10.5763Z"

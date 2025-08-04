@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.Font?>
+<?import java.lang.*?>
+<?import java.net.URL?>
+<StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="categoriesPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+           minWidth="-Infinity"
+           prefHeight="780.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/24.0.1"
+           fx:controller="main.java.controllers.CategoriesScreenController">
+    <BorderPane>
+        <left>
+            <VBox prefHeight="780.0" prefWidth="275.0" styleClass="hamburger_menu" BorderPane.alignment="CENTER">
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="35.0" prefWidth="115.0"
+                            styleClass="active-button" text="COMPRAR" textFill="WHITE" translateX="22.0" translateY="35.0">
+                        <font>
+                            <Font name="JejuMyeongjo" size="16.0"/>
+                        </font>
+                    </Button>
+                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="35.0" prefWidth="115.0"
+                            text="VENDER" textFill="#aeaeae" translateX="23.0" translateY="35.0">
+                        <font>
+                            <Font name="JejuMyeongjo" size="16.0"/>
+                        </font>
+                        <styleClass>
+                            <String fx:value="transluced_box"/>
+                            <String fx:value="unactive_button"/>
+                        </styleClass>
+                    </Button>
+                </HBox>
+                <GridPane prefHeight="436.0" prefWidth="275.0">
+                    <columnConstraints>
+                        <ColumnConstraints/>
+                        <ColumnConstraints minWidth="275.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="129.0" minHeight="75.0" prefHeight="124.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="133.0" minHeight="0.0" prefHeight="108.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="173.0" minHeight="10.0" prefHeight="107.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="173.0" minHeight="10.0" prefHeight="123.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <Button mnemonicParsing="false" onAction="#changeProductsAction" text="PRODUCTOS" GridPane.columnIndex="1"
+                            GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <graphic>
+                            <SVGPath
+                                    content="M20.5 0L41 11.8357V35.507L20.5 47.3427L0 35.507V11.8357L20.5 0ZM13.6666 22.0928L13.6667 38.1374L18.2222 40.7677V24.723L13.6666 22.0928ZM4.55556 16.8328V32.8769L9.11108 35.5072V19.4628L4.55556 16.8328ZM29.4678 10.4378L16.0597 18.2146L20.5 20.7782L33.9389 13.0192L29.4678 10.4378ZM20.5 5.2603L7.06111 13.0192L11.5094 15.5874L24.9175 7.81071L20.5 5.2603Z"
+                                    fill="WHITE" scaleX="0.7" scaleY="0.7" scaleZ="0.0"/>
+                        </graphic>
+                        <font>
+                            <Font name="JejuMyeongjo" size="12.0"/>
+                        </font>
+                        <styleClass>
+                            <String fx:value="current_button"/>
+                            <String fx:value="another_button"/>
+                        </styleClass>
+                    </Button>
+                    <Button mnemonicParsing="false" styleClass="current_button" text="CATEGORÍAS" GridPane.columnIndex="1"
+                            GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                        <graphic>
+                            <SVGPath
+                                    content="M40 32.8571H16.0887V35.7143H40V32.8571ZM4.42358 34.2857L0.0170792 37.9714L2.42529 40L9.25708 34.2857L2.42529 28.5714L0 30.5857L4.42358 34.2857ZM40 18.5714H16.0887V21.4286H40V18.5714ZM4.42358 20L0.0170792 23.6857L2.42529 25.7143L9.25708 20L2.42529 14.2857L0 16.3L4.42358 20ZM40 4.28571H16.0887V7.14286H40V4.28571ZM4.42358 5.71429L0.0170792 9.4L2.42529 11.4286L9.25708 5.71429L2.42529 0L0 2.01429L4.42358 5.71429Z"
+                                    fill="WHITE" scaleX="0.4" scaleY="0.4" scaleZ="0.0"/>
+                        </graphic>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#changeOffersAction" text="   OFERTAS" GridPane.columnIndex="1"
+                            GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                        <graphic>
+                            <SVGPath
+                                    content="M25 12.4999C25 11.2704 23.672 10.2065 21.1597 9.42332C20.9251 9.35014 20.6823 9.2805 20.4328 9.21409C20.5623 8.9907 20.6846 8.76987 20.7989 8.55223C22.0215 6.22193 22.2083 4.53067 21.3389 3.66116C20.9835 3.30594 20.4833 3.12577 19.8519 3.12577C18.7983 3.12577 17.3786 3.64743 15.7867 4.57021C15.72 4.31961 15.6501 4.07584 15.5767 3.84029C14.7935 1.32793 13.7296 0 12.5 0C11.2705 0 10.2065 1.32793 9.42331 3.84029C9.34988 4.07582 9.27994 4.3196 9.21329 4.57021C7.62138 3.64743 6.20172 3.12577 5.14797 3.12577C4.51662 3.12577 4.01645 3.30587 3.66116 3.66116C2.79172 4.5306 2.97842 6.22193 4.20114 8.55223C4.31533 8.76987 4.43771 8.9907 4.56715 9.21409C4.31765 9.2805 4.07491 9.35014 3.84029 9.42332C1.328 10.2065 0 11.2704 0 12.4999C0 13.7296 1.328 14.7934 3.84029 15.5767C4.07491 15.6499 4.31765 15.7194 4.56715 15.786C4.43771 16.0093 4.31533 16.2302 4.20114 16.4478C2.97842 18.7781 2.79172 20.4694 3.66116 21.3388C4.01645 21.6941 4.51667 21.8743 5.14797 21.8743C6.20172 21.8743 7.6214 21.3526 9.21329 20.4298C9.28 20.6803 9.34988 20.9241 9.42331 21.1597C10.2065 23.672 11.2704 25 12.5 25C13.7296 25 14.7935 23.672 15.5767 21.1597C15.6501 20.9241 15.72 20.6804 15.7867 20.4298C17.3786 21.3526 18.7981 21.8741 19.8519 21.8741C20.4833 21.8741 20.9835 21.694 21.3388 21.3388C22.2083 20.4694 22.0215 18.7781 20.7988 16.4478C20.6846 16.2302 20.5623 16.0093 20.4327 15.786C20.6823 15.7194 20.9251 15.6498 21.1597 15.5767C23.672 14.7934 25 13.7296 25 12.4999ZM20.578 14.8375C20.3765 14.8958 20.1694 14.9519 19.9573 15.0053C19.8305 15.0373 19.7022 15.0686 19.5718 15.0987C19.4007 15.1384 19.2264 15.1764 19.0493 15.2128C19.1484 15.3634 19.2445 15.5131 19.3373 15.6618C19.4085 15.7757 19.4773 15.889 19.5446 16.0017C19.6564 16.1887 19.7626 16.3737 19.8636 16.5567C19.9185 16.6564 19.9723 16.7558 20.0241 16.8543C21.007 18.7278 21.2672 20.1729 20.7201 20.72C20.5349 20.9053 20.2428 20.9992 19.8519 20.9992C19.0107 20.9992 17.8621 20.5898 16.5541 19.8649C16.3727 19.7644 16.1884 19.6579 16.0014 19.5456C15.8892 19.4782 15.776 19.4086 15.662 19.3372C15.5139 19.2442 15.3641 19.1479 15.2131 19.048C15.1765 19.2255 15.1384 19.4003 15.0987 19.5718C15.0688 19.7011 15.0378 19.8282 15.006 19.954C14.9523 20.1673 14.8961 20.3754 14.8375 20.578C14.806 20.6866 14.7741 20.794 14.7413 20.8992C14.1116 22.9191 13.2738 24.125 12.5 24.125C11.7262 24.125 10.8883 22.9191 10.2587 20.8992C10.2259 20.794 10.194 20.6865 10.1626 20.578C10.1039 20.3754 10.0476 20.1673 9.99386 19.9539C9.96219 19.8282 9.93124 19.7011 9.90128 19.5718C9.86162 19.4003 9.82352 19.2255 9.78691 19.048C9.63584 19.1478 9.48612 19.2442 9.33782 19.3372C9.22386 19.4086 9.11076 19.4782 8.99858 19.5456C8.81157 19.6579 8.62719 19.7644 8.44586 19.8649C7.13789 20.5898 5.98927 20.9993 5.14798 20.9993C4.75717 20.9993 4.46512 20.9053 4.27994 20.7201C3.73277 20.173 3.99296 18.7278 4.97598 16.8543C5.02761 16.7558 5.08152 16.6564 5.1365 16.5567C5.23732 16.3737 5.34365 16.1887 5.45534 16.0017C5.52266 15.889 5.59151 15.7757 5.66261 15.6618C5.75538 15.5131 5.85158 15.3634 5.95064 15.2128C5.77363 15.1764 5.59932 15.1384 5.42817 15.0987C5.29774 15.0686 5.16951 15.0373 5.04268 15.0053C4.83046 14.9519 4.62349 14.8958 4.42196 14.8375C4.31344 14.806 4.20602 14.7741 4.10074 14.7413C2.08085 14.1116 0.874986 13.2738 0.874986 12.4999C0.874986 11.7261 2.08084 10.8883 4.10073 10.2586C4.20601 10.2258 4.31344 10.1939 4.42195 10.1625C4.62354 10.1041 4.83044 10.0482 5.04267 9.99466C5.16944 9.96273 5.29773 9.93149 5.42816 9.90127C5.5993 9.86164 5.77362 9.82368 5.95055 9.78713C5.85149 9.63656 5.75537 9.4869 5.66258 9.33823C5.59148 9.22428 5.52263 9.11105 5.45525 8.99839C5.34355 8.81138 5.23728 8.62631 5.1364 8.44333C5.08147 8.34354 5.02752 8.24417 4.97588 8.14572C3.99291 6.2722 3.73267 4.82702 4.2799 4.27979C4.46508 4.09461 4.75713 4.00074 5.14794 4.00074C5.98923 4.00074 7.13779 4.41016 8.44576 5.13507C8.62709 5.23553 8.81149 5.34215 8.99854 5.45445C9.11072 5.52184 9.22377 5.59129 9.33777 5.66283C9.48602 5.75584 9.63574 5.85216 9.78687 5.95201C9.82349 5.77453 9.86157 5.59973 9.90124 5.4281C9.93119 5.29888 9.96215 5.17176 9.99382 5.04609C10.0476 4.83271 10.1038 4.62458 10.1625 4.42195C10.194 4.31343 10.2258 4.20595 10.2587 4.10073C10.8883 2.08085 11.7262 0.874986 12.5 0.874986C13.2738 0.874986 14.1116 2.08084 14.7413 4.10073C14.7741 4.20595 14.806 4.3135 14.8375 4.42201C14.8962 4.62464 14.9523 4.83265 15.0062 5.04603C15.0378 5.17176 15.0688 5.29895 15.0987 5.42816C15.1384 5.59973 15.1765 5.77453 15.2131 5.95196C15.3642 5.85217 15.5139 5.75585 15.6622 5.66284C15.7762 5.59132 15.8892 5.52185 16.0014 5.45447C16.1884 5.34216 16.3729 5.23554 16.5541 5.13508C17.8621 4.41023 19.0106 4.00075 19.8519 4.00075C20.2428 4.00075 20.5349 4.09468 20.7201 4.27993C21.2672 4.82704 21.007 6.27222 20.0241 8.14574C19.9723 8.24413 19.9185 8.34349 19.8636 8.44329C19.7626 8.62627 19.6564 8.81138 19.5446 8.99839C19.4773 9.11105 19.4085 9.22422 19.3373 9.33823C19.2445 9.48686 19.1485 9.63658 19.0493 9.78713C19.2264 9.82368 19.4007 9.86166 19.5718 9.90127C19.7022 9.93147 19.8305 9.96272 19.9573 9.99466C20.1695 10.0482 20.3765 10.1041 20.578 10.1625C20.6865 10.1939 20.794 10.2258 20.8992 10.2586C22.9191 10.8883 24.125 11.7261 24.125 12.4999C24.125 13.2738 22.9191 14.1116 20.8992 14.7413C20.794 14.7741 20.6865 14.806 20.578 14.8375Z M9.78324 11.8337C10.9345 11.8337 11.8711 10.8971 11.8711 9.74583C11.8711 8.5946 10.9345 7.65796 9.78318 7.65796C8.63196 7.65796 7.69531 8.59453 7.69531 9.74576C7.69531 10.8971 8.63195 11.8337 9.78324 11.8337ZM9.78318 8.53294C10.452 8.53294 10.9961 9.07706 10.9961 9.74583C10.9961 10.4146 10.452 10.9587 9.78324 10.9587C9.11442 10.9587 8.5703 10.4146 8.5703 9.74577C8.5703 9.07702 9.11443 8.53294 9.78318 8.53294Z M15.3072 13.1818C14.1559 13.1818 13.2192 14.1185 13.2192 15.2698C13.2192 16.4211 14.1559 17.3576 15.3072 17.3576C16.4585 17.3576 17.395 16.4211 17.395 15.2698C17.395 14.1185 16.4585 13.1818 15.3072 13.1818ZM15.3072 16.4826C14.6384 16.4826 14.0943 15.9385 14.0943 15.2698C14.0943 14.6009 14.6384 14.0568 15.3072 14.0568C15.9759 14.0568 16.52 14.6009 16.52 15.2698C16.52 15.9385 15.9759 16.4826 15.3072 16.4826Z M16.6483 7.79317L7.83076 16.6108C7.65993 16.7817 7.65993 17.0586 7.83076 17.2295C7.9162 17.3148 8.02821 17.3576 8.14015 17.3576C8.25208 17.3576 8.36408 17.3148 8.44953 17.2295L17.267 8.41196C17.4378 8.24107 17.4378 7.96408 17.267 7.79317C17.0962 7.62241 16.8192 7.62241 16.6483 7.79317Z"
+                                    fill="WHITE" scaleZ="0.0"/>
+                        </graphic>
+                        <styleClass>
+                            <String fx:value="another_button"/>
+                            <String fx:value="current_button"/>
+                        </styleClass>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#changeFavoritesAction" text=" FAVORITOS" GridPane.columnIndex="1"
+                            GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                        <graphic>
+                            <SVGPath
+                                    content="M11.25 0H8.75001L6.89115 5.72101L0.875692 5.72102L0.103149 8.09866L4.96976 11.6344L3.11091 17.3554L5.13346 18.8249L10 15.2891L14.8666 18.8249L16.8891 17.3554L15.0302 11.6344L19.8969 8.09865L19.1242 5.72101H13.1089L11.25 0Z"
+                                    fill="WHITE" scaleZ="0.0"/>
+                        </graphic>
+                        <styleClass>
+                            <String fx:value="another_button"/>
+                            <String fx:value="current_button"/>
+                        </styleClass>
+                    </Button>
+                </GridPane>
+                <Button mnemonicParsing="false" onAction="#logoutAction" styleClass="exit_button" translateX="100.0" translateY="35.0">
+                    <graphic>
+                        <SVGPath
+                                content="M35.8092 18.4663L33.0046 12.3029C32.7435 11.7274 32.064 11.4749 31.4915 11.736C30.9166 11.9971 30.6629 12.6754 30.9246 13.2491L32.8475 17.476H25.4178C24.7869 17.476 24.2749 17.988 24.2749 18.6189C24.2749 19.2497 24.7869 19.7617 25.4178 19.7617H33.2406L30.9235 24.8543C30.6618 25.428 30.9155 26.1063 31.4903 26.3674C31.644 26.4366 31.8046 26.4703 31.9629 26.4703C32.3972 26.4703 32.812 26.2211 33.0035 25.8006L35.8258 19.5977C35.8852 19.4857 35.924 19.3651 35.9435 19.2406C35.9932 18.9754 35.9435 18.7006 35.8092 18.4663Z M29.476 27.1868C28.8451 27.1868 28.3331 27.6982 28.3331 28.3296V32.9045H22.0474V8.72506C22.0474 7.74106 21.5846 6.86792 20.6503 6.55649L14.0206 4.33306H28.3331V10.0439C28.3331 10.6748 28.8451 11.1868 29.476 11.1868C30.1069 11.1868 30.6189 10.6748 30.6189 10.0439V3.18678C30.6189 2.55592 30.6206 2.04735 29.9891 2.04735H7.20515L7.01943 1.98506C6.78343 1.90621 6.62286 1.86792 6.38 1.86792C5.90629 1.86792 5.27143 2.01535 4.87715 2.29935C4.28115 2.72906 3.76172 3.41878 3.76172 4.15363V31.3376C3.76172 32.3211 4.55772 33.1948 5.49086 33.5062L19.2886 38.0776C19.5246 38.1559 19.8103 38.1948 20.0526 38.1948C20.5269 38.1948 20.8497 38.0473 21.2434 37.7628C21.8394 37.3331 22.0474 36.6433 22.0474 35.9091V35.1902H29.9891C30.62 35.1902 30.6189 34.6748 30.6189 34.0439V28.3296C30.6189 27.6982 30.1074 27.1868 29.476 27.1868ZM19.7617 35.9091L6.04743 31.3376V4.33306V4.28792L6.17143 4.19706L19.7617 8.72506V35.9091Z M17.476 27.1867C17.792 27.1867 18.0474 26.9312 18.0474 26.6152V23.1867C18.0474 22.8707 17.792 22.6152 17.476 22.6152C17.16 22.6152 16.9045 22.8707 16.9045 23.1867V26.6152C16.9045 26.9312 17.16 27.1867 17.476 27.1867Z"
+                                fill="WHITE" scaleX="2.0" scaleY="2.0"/>
+                    </graphic>
+                </Button>
+            </VBox>
+        </left>
+        <top>
+            <HBox prefHeight="100.0" prefWidth="200.0" styleClass="hamburger_menu" BorderPane.alignment="CENTER">
+                <children>
+                    <TextField promptText="¿Buscas algo...?" styleClass="search_field">
+                        <HBox.margin>
+                            <Insets left="35.0" top="22.0"/>
+                        </HBox.margin>
+                    </TextField>
+                    <Button mnemonicParsing="false" styleClass="exit_button">
+                        <HBox.margin>
+                            <Insets left="10.0" top="10.0"/>
+                        </HBox.margin>
+                        <graphic>
+                            <SVGPath
+                                    content="M13.4623 22.8751C11.6007 22.8751 9.78088 22.3231 8.23301 21.2888C6.68513 20.2546 5.47871 18.7844 4.76629 17.0646C4.05388 15.3447 3.86748 13.4521 4.23067 11.6263C4.59386 9.80043 5.49031 8.12328 6.80667 6.80691C8.12303 5.49055 9.80018 4.5941 11.626 4.23091C13.4518 3.86773 15.3444 4.05413 17.0643 4.76654C18.7842 5.47895 20.2543 6.68538 21.2886 8.23325C22.3228 9.78113 22.8748 11.6009 22.8748 13.4626C22.8748 14.6986 22.6313 15.9226 22.1583 17.0646C21.6853 18.2066 20.9919 19.2442 20.1179 20.1182C19.2439 20.9922 18.2063 21.6856 17.0643 22.1586C15.9223 22.6316 14.6983 22.8751 13.4623 22.8751ZM13.4623 5.93755C11.979 5.93755 10.5289 6.37743 9.29553 7.20154C8.06217 8.02564 7.10087 9.19699 6.53322 10.5674C5.96556 11.9379 5.81703 13.4458 6.10642 14.9007C6.39581 16.3556 7.11012 17.6919 8.15901 18.7408C9.20791 19.7897 10.5443 20.5041 11.9991 20.7934C13.4539 21.0828 14.9619 20.9343 16.3324 20.3667C17.7028 19.7989 18.8742 18.8377 19.6983 17.6043C20.5224 16.3709 20.9623 14.9209 20.9623 13.4376C20.9623 11.4484 20.1722 9.54078 18.7656 8.13425C17.3591 6.72773 15.4514 5.93755 13.4623 5.93755Z M25 25.9375C24.8769 25.938 24.7547 25.914 24.641 25.8667C24.5272 25.8196 24.424 25.7501 24.3375 25.6625L19.175 20.5C19.0094 20.3222 18.9192 20.0871 18.9235 19.8442C18.9277 19.6014 19.0262 19.3697 19.198 19.1979C19.3697 19.0261 19.6015 18.9277 19.8444 18.9235C20.0872 18.9192 20.3222 19.0094 20.5 19.175L25.6625 24.3375C25.838 24.5132 25.9366 24.7515 25.9366 25C25.9366 25.2484 25.838 25.4866 25.6625 25.6625C25.576 25.7501 25.4727 25.8196 25.359 25.8667C25.2452 25.914 25.1231 25.938 25 25.9375Z"
+                                    fill="WHITE" scaleX="1.7" scaleY="1.7" scaleZ="0.0"/>
+                        </graphic>
+                    </Button>
+                    <Label styleClass="label_nickname" text="¡Que bueno verte de nuevo,">
+                        <HBox.margin>
+                            <Insets left="75.0" top="25.0"/>
+                        </HBox.margin>
+                    </Label>
+                    <Label styleClass="nickname_format" text="Eduardo">
+                        <HBox.margin>
+                            <Insets left="10.0" top="25.0"/>
+                        </HBox.margin>
+                    </Label>
+                    <Label styleClass="label_nickname" text="!">
+                        <HBox.margin>
+                            <Insets top="25.0"/>
+                        </HBox.margin>
+                    </Label>
+                    <ImageView fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                        <HBox.margin>
+                            <Insets left="100.0" top="12.5"/>
+                        </HBox.margin>
+                        <Image url="@../images/default_user.png"/>
+                    </ImageView>
+                </children>
+            </HBox>
+        </top>
+        <center>
+            <GridPane BorderPane.alignment="CENTER">
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints maxHeight="311.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES"/>
+                    <RowConstraints maxHeight="436.0" minHeight="10.0" prefHeight="97.0" vgrow="SOMETIMES"/>
+                    <RowConstraints maxHeight="433.0" minHeight="0.0" prefHeight="155.0" vgrow="SOMETIMES"/>
+                    <RowConstraints maxHeight="433.0" minHeight="10.0" prefHeight="85.0" vgrow="SOMETIMES"/>
+                    <RowConstraints maxHeight="433.0" minHeight="10.0" prefHeight="160.0" vgrow="SOMETIMES"/>
+                    <RowConstraints maxHeight="433.0" minHeight="10.0" prefHeight="109.0" vgrow="SOMETIMES"/>
+                </rowConstraints>
+                <children>
+                    <Label styleClass="label_title" text="Selecciona la categoría que deseas buscar" GridPane.halignment="CENTER"
+                           GridPane.valignment="BOTTOM"/>
+                    <Button mnemonicParsing="false" styleClass="glass_button" text="Comida" GridPane.halignment="CENTER"
+                            GridPane.rowIndex="1" GridPane.valignment="BOTTOM"/>
+                    <Button mnemonicParsing="false" styleClass="glass_button" text="Tecnología" GridPane.halignment="CENTER"
+                            GridPane.rowIndex="2" GridPane.valignment="CENTER"/>
+                    <Button mnemonicParsing="false" styleClass="glass_button" text="Ropa" GridPane.halignment="CENTER" GridPane.rowIndex="3"
+                            GridPane.valignment="CENTER"/>
+                    <Button mnemonicParsing="false" styleClass="glass_button" text="Tutorías" GridPane.halignment="CENTER"
+                            GridPane.rowIndex="4" GridPane.valignment="CENTER"/>
+                    <Button mnemonicParsing="false" styleClass="glass_button" text="Servicios" GridPane.halignment="CENTER"
+                            GridPane.rowIndex="5" GridPane.valignment="TOP"/>
+                </children>
+            </GridPane>
+        </center>
+    </BorderPane>
+    <stylesheets>
+        <URL value="@../css/DashboardScreen.css"/>
+        <URL value="@../css/CategoriesScreen.css"/>
+    </stylesheets>
+</StackPane>

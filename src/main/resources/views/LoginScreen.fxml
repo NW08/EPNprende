@@ -131,7 +131,7 @@
         <Label fx:id="lbl_message"
                layoutX="192.0"
                layoutY="257.0"
-               styleClass="label_error"
+               styleClass="label_nickname"
                textFill="RED"
                GridPane.halignment="CENTER"
                GridPane.rowIndex="3"

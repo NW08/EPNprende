@@ -30,6 +30,9 @@ public enum Strings {
    LOGIN_TITLE("Login User"),
    SIGN_TITLE("Register New User"),
    DASHBOARD_TITLE("EPNprende Dashboard"),
+   CATEGORIES_TITLE("EPNprende Categorías"),
+   FAVORITES_TITLE("EPNprende Favoritos"),
+   OFFERS_TITLE("EPNprende Ofertas"),
 
    // ─── Otros ───────────────────────────────────────────────────
    EMPTY_TEXT("");
