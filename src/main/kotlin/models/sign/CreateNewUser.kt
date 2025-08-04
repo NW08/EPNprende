@@ -1,6 +1,6 @@
 package main.kotlin.models.sign
 
-import main.kotlin.database.firebase.AuthClient.API_KEY
+import main.kotlin.database.firebase.AuthClient.SECRETS_KEY
 import main.kotlin.database.firebase.AuthClient.client
 import main.kotlin.database.firebase.AuthClient.gson
 import main.kotlin.database.firebase.StartServices.db
@@ -10,7 +10,7 @@ import okhttp3.RequestBody.Companion.toRequestBody
 
 internal object CreateNewUser {
 
-   private val url: String = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=$API_KEY"
+   private val url: String = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=$SECRETS_KEY"
 
    /**
     * Registra un usuario en Firebase Auth usando email/password.
