@@ -2,7 +2,7 @@ package main.kotlin.models.sign
 
 internal object CheckPassword {
    internal fun checkPasswordLength(password: String): Boolean {
-      return password.length >= 8 && password.length <= 16
+      return password.length in 8..16
    }
 
    internal fun checkPasswordFormat(password: String): Boolean {
