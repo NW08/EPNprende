@@ -167,7 +167,7 @@
                         </rowConstraints>
                         <ImageView fitHeight="175.0" fitWidth="275.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER"
                                    GridPane.valignment="CENTER">
-                            <Image url="@../images/default_image.jpg"/>
+                            <Image url="@../images/Case_Phone_Favorites.jpg"/>
                         </ImageView>
                         <GridPane GridPane.rowIndex="1">
                             <columnConstraints>
@@ -178,7 +178,7 @@
                             <rowConstraints>
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                             </rowConstraints>
-                            <Button minWidth="160.0" mnemonicParsing="false" text="Zapatos">
+                            <Button minWidth="160.0" mnemonicParsing="false" text="Carcasa iPhone">
                                 <styleClass>
                                     <String fx:value="exit_button"/>
                                     <String fx:value="card_info"/>
@@ -190,7 +190,7 @@
                                         <Insets left="5.0" top="12.0"/>
                                     </HBox.margin>
                                 </Label>
-                                <Label styleClass="card_info" text="125.00">
+                                <Label styleClass="card_info" text="10.00">
                                     <HBox.margin>
                                         <Insets top="12.0"/>
                                     </HBox.margin>
@@ -230,7 +230,7 @@
                         </rowConstraints>
                         <ImageView fitHeight="175.0" fitWidth="275.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER"
                                    GridPane.valignment="CENTER">
-                            <Image url="@../images/default_image.jpg"/>
+                            <Image url="@../images/Haircut_Favorite.jpg"/>
                         </ImageView>
                         <GridPane GridPane.rowIndex="1">
                             <columnConstraints>
@@ -241,7 +241,7 @@
                             <rowConstraints>
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                             </rowConstraints>
-                            <Button minWidth="160.0" mnemonicParsing="false" text="Zapatos">
+                            <Button minWidth="160.0" mnemonicParsing="false" text="Cortes Cabello">
                                 <styleClass>
                                     <String fx:value="exit_button"/>
                                     <String fx:value="card_info"/>
@@ -253,7 +253,7 @@
                                         <Insets left="5.0" top="12.0"/>
                                     </HBox.margin>
                                 </Label>
-                                <Label styleClass="card_info" text="125.00">
+                                <Label styleClass="card_info" text="5.00">
                                     <HBox.margin>
                                         <Insets top="12.0"/>
                                     </HBox.margin>
@@ -296,7 +296,7 @@
                                 <ImageView fitHeight="175.0" fitWidth="275.0" pickOnBounds="true" preserveRatio="true"
                                            GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                     <image>
-                                        <Image url="@../images/default_image.jpg"/>
+                                        <Image url="@../images/Headphones_Favorite.jpg"/>
                                     </image>
                                 </ImageView>
                                 <GridPane GridPane.rowIndex="1">
@@ -309,7 +309,7 @@
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                                     </rowConstraints>
                                     <children>
-                                        <Button minWidth="160.0" mnemonicParsing="false" text="Zapatos">
+                                        <Button minWidth="160.0" mnemonicParsing="false" text="Cascos JBL">
                                             <styleClass>
                                                 <String fx:value="exit_button"/>
                                                 <String fx:value="card_info"/>
@@ -322,7 +322,7 @@
                                                         <Insets left="5.0" top="12.0"/>
                                                     </HBox.margin>
                                                 </Label>
-                                                <Label styleClass="card_info" text="125.00">
+                                                <Label styleClass="card_info" text="35.50">
                                                     <HBox.margin>
                                                         <Insets top="12.0"/>
                                                     </HBox.margin>
@@ -370,7 +370,7 @@
                                 <ImageView fitHeight="175.0" fitWidth="275.0" pickOnBounds="true" preserveRatio="true"
                                            GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                     <image>
-                                        <Image url="@../images/default_image.jpg"/>
+                                        <Image url="@../images/Hoodie_Favorite.jpg"/>
                                     </image>
                                 </ImageView>
                                 <GridPane GridPane.rowIndex="1">
@@ -383,7 +383,7 @@
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                                     </rowConstraints>
                                     <children>
-                                        <Button minWidth="160.0" mnemonicParsing="false" text="Zapatos">
+                                        <Button minWidth="160.0" mnemonicParsing="false" text="Hoddie XL">
                                             <styleClass>
                                                 <String fx:value="exit_button"/>
                                                 <String fx:value="card_info"/>
@@ -396,7 +396,7 @@
                                                         <Insets left="5.0" top="12.0"/>
                                                     </HBox.margin>
                                                 </Label>
-                                                <Label styleClass="card_info" text="125.00">
+                                                <Label styleClass="card_info" text="20.00">
                                                     <HBox.margin>
                                                         <Insets top="12.0"/>
                                                     </HBox.margin>

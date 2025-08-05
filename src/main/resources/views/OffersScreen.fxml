@@ -168,7 +168,7 @@
                                 </rowConstraints>
                                 <ImageView fitHeight="175.0" fitWidth="275.0" pickOnBounds="true" preserveRatio="true"
                                            GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                                    <Image url="@../images/default_image.jpg"/>
+                                    <Image url="@../images/Book_Offer.jpg"/>
                                 </ImageView>
                                 <GridPane GridPane.rowIndex="1">
                                     <columnConstraints>
@@ -179,7 +179,7 @@
                                     <rowConstraints>
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                                     </rowConstraints>
-                                    <Button minWidth="160.0" mnemonicParsing="false" text="Zapatos">
+                                    <Button minWidth="160.0" mnemonicParsing="false" text="Libros Inglés">
                                         <styleClass>
                                             <String fx:value="exit_button"/>
                                             <String fx:value="card_info"/>
@@ -191,7 +191,7 @@
                                                 <Insets left="5.0" top="12.0"/>
                                             </HBox.margin>
                                         </Label>
-                                        <Label styleClass="card_info" text="125.00">
+                                        <Label styleClass="card_info" text="15.00">
                                             <HBox.margin>
                                                 <Insets top="12.0"/>
                                             </HBox.margin>
@@ -235,7 +235,7 @@
                                 </rowConstraints>
                                 <ImageView fitHeight="175.0" fitWidth="275.0" pickOnBounds="true" preserveRatio="true"
                                            GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                                    <Image url="@../images/default_image.jpg"/>
+                                    <Image url="@../images/Proteica_Offer.jpg"/>
                                 </ImageView>
                                 <GridPane GridPane.rowIndex="1">
                                     <columnConstraints>
@@ -246,7 +246,7 @@
                                     <rowConstraints>
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                                     </rowConstraints>
-                                    <Button minWidth="160.0" mnemonicParsing="false" text="Zapatos">
+                                    <Button minWidth="160.0" mnemonicParsing="false" text="Almuerzos">
                                         <styleClass>
                                             <String fx:value="exit_button"/>
                                             <String fx:value="card_info"/>
@@ -258,7 +258,7 @@
                                                 <Insets left="5.0" top="12.0"/>
                                             </HBox.margin>
                                         </Label>
-                                        <Label styleClass="card_info" text="125.00">
+                                        <Label styleClass="card_info" text="2.00">
                                             <HBox.margin>
                                                 <Insets top="12.0"/>
                                             </HBox.margin>

@@ -156,6 +156,7 @@ public class SignScreenController implements ViewLifecycle {
       if (id != null) {
          Stage stage = (Stage) signPane.getScene().getWindow();
          RootController.showDashboard(stage);
+         System.out.println("Your ID is: " + id);
          return id;
       } else return 0;
    }
