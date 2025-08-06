@@ -10,3 +10,4 @@
 - 💾 PostgreSQL
 
 ---
+Video de defensa para la asignatura de Programación Orientada a Objetos:https://drive.google.com/drive/folders/1a1B-zHORvBmCw7znwJpYgEekNbgx3wIR?usp=sharing 
